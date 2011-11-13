@@ -1,0 +1,57 @@
+{
+  maps : [
+    {
+      id: 1,
+      slug: "main",
+      title: "A map of my childhood",
+      image: "/maps/main.png",
+      stories: [
+      
+      ],
+      doors: {
+        to: [{
+          slug: "town",
+          x: 50,
+          y: 50
+        }]
+        ,
+        from: []
+      }
+    },
+    {
+      id: 2,
+      slug: "town",
+      title: "The town",
+      image: "/maps/town.png",
+      stories: [],
+      doors: {
+        to: [{
+          slug: "house",
+          x: 50,
+          y: 50 
+        },
+        from: [{
+          slug: "main"
+        }]]
+      }
+    },
+    {
+      id: 3,
+      slug: "house",
+      title: "My house",
+      image: "/maps/house.png",
+      stories: [],
+      doors: {
+        to: [{
+          slug: "room",
+          x: 50,
+          y: 50 
+        }],
+        from: [{
+          slug: "town"
+        }]
+      }
+    },
+
+  ]
+}
