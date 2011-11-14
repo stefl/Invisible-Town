@@ -48,7 +48,7 @@ $(function() {
         $.each(map.doors_from, function(i, e) {
             var $door = $("<a class='tip door' />");
             $door
-                .title("Go to the " + $elem.data().door.to + " map")
+                .attr("title", "Go to the " + $(e).to + " map")
                 .data("door", e)
                 .css("left", e.x + "%")
                 .css("top", e.y + "%")
