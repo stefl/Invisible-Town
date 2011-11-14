@@ -14,6 +14,6 @@ DataMapper::Property::String.length(255)
 
 case Padrino.env
   when :development then DataMapper.setup(:default, "postgres://postgres@localhost/invisible_town_development")
-  when :production  then DataMapper.setup(:default, "postgres://postgres@localhost/invisible_town_production")
+  when :production  then DataMapper.setup(:default, ENV["DATABASE_URL"])
   when :test        then DataMapper.setup(:default, "postgres://postgres@localhost/invisible_town_test")
 end

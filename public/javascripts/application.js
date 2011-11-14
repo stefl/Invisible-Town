@@ -46,8 +46,9 @@ $(function() {
         var tabindex = 1;
         $map_markers.hide();
         $.each(map.doors_from, function(i, e) {
-            var $door = $("<a class='door' />");
+            var $door = $("<a class='tip door' />");
             $door
+                .title("Go to the " + $elem.data().door.to + " map")
                 .data("door", e)
                 .css("left", e.x + "%")
                 .css("top", e.y + "%")
@@ -62,8 +63,9 @@ $(function() {
         })
         
         $.each(map.stories, function(i, e) {
-            var $story = $("<a class='story' />");
-            $story.attr("title", e.title)
+            var $story = $("<a class='tip story' />");
+            $story
+                .attr("title", e.title)
                 .data("story", e)
                 .css("left", e.x + "%")
                 .css("top", e.y + "%")
@@ -72,6 +74,7 @@ $(function() {
             $map_markers.append($story);
             tabindex = tabindex + 1;
         });
+        $(".tip").tipTip();
     }
     
     function showStory(story) {
@@ -88,4 +91,6 @@ $(function() {
         goBack();
         return(false);
     });
+    
+    $(".tip").tipTip();
 })
