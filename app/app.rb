@@ -2,7 +2,7 @@ class InvisibleTown < Padrino::Application
   register Padrino::Rendering
   register Padrino::Mailer
   register Padrino::Helpers
-  register CompassInitializer
+  #register CompassInitializer
 
 
   enable :sessions
