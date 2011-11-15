@@ -2,39 +2,72 @@
   =f.label :title
   =f.error_message_on :title
   =f.text_field :title, :class => :text_field
-  %span.description Ex: a simple text
+  %span.description The title that you would give this story
+
+- if 1 == 0
+  .group
+    =f.label :post_id
+    =f.error_message_on :post_id
+    =f.text_field :post_id, :class => :text_field
+    %span.description Unused at the moment
 
 .group
-  =f.label :post_id
-  =f.error_message_on :post_id
-  =f.text_field :post_id, :class => :text_field
-  %span.description Ex: a simple text
+  =f.label "Description"
+  =f.error_message_on :description
+  =f.text_field :description, :class => :text_field
+  %span.description Make this story have some text. Leave this blank for photo / video / audio
 
 .group
-  =f.label :happened_at
-  =f.error_message_on :happened_at
-  =f.text_field :happened_at, :class => :text_field
-  %span.description Ex: a simple text
+  =f.label "Aframe clip ID"
+  =f.error_message_on :aframe_clip_id
+  =f.text_field :aframe_clip_id, :class => :text_field
+  %span.description Eg. 74bc12df-c5c1-43ce-af00-3cc0b106cbcc - you get this from the URL bar in Aframe
 
 .group
-  =f.label :x
-  =f.error_message_on :x
-  =f.text_field :x, :class => :text_field
-  %span.description Ex: a simple text
+  =f.label "Happened on"
+  =f.error_message_on :date_happened
+  =f.date_field :date_happened, :class => :date_field
 
-.group
-  =f.label :y
-  =f.error_message_on :y
-  =f.text_field :y, :class => :text_field
-  %span.description Ex: a simple text
+  =f.label "at"
+  =f.error_message_on :time_of_day
+  =f.time_field :time_of_day, :class => :time_field
+
 
 .group
   =f.label :map_id
   =f.error_message_on :map_id
-  =f.text_field :map_id, :class => :text_field
-  %span.description Ex: a simple text
+  %select{:name=>"story[map_id]", :onchange => "console.log(this); $('#map_image').attr('src', $(this).find('option:selected').data().image);"}
+    - maps = Map.all
+    - maps.each do |map|
+      %option{:"data-image" => "/map_images/#{map.slug}.png", :value=>map.id, :selected => @story.map_id == map.id}= map.title
+  #x_y
+    =f.label :x
+    =f.error_message_on :x
+    =f.number_field :x, :class => :x
 
-
+    =f.label :y
+    =f.error_message_on :y
+    =f.number_field :y, :class => :y
+    
+  %br
+  %span.description Alter these values to position the story on the map
+  %img#map_image{:src=>"/map_images/#{@story.map.slug}.png", :width => "800"}
+  #marker{:style=>"display: block; position: absolute; z-index: 2000; width: 8px; height: 8px; background-color: black;"}
 .group.navform.wat-cf
   =f.submit pat(:save), :class => :button
   =f.submit pat(:cancel), :onclick => "window.location='#{url(:stories, :index)}';return false", :class => :button
+
+:javascript
+  $(function() {
+    var $map = $("#map_image");
+    window.redrawMarker = function() {
+      var left = $map.offset().left + (parseInt($("#story_x").val()) * $map.width()/100.0 );
+      console.log(left);
+      $("#marker").css("left", left);
+      $("#marker").css("top", $map.offset().top + (parseInt($("#story_y").val()) * $map.height()/100.0 ));
+    }
+    $("#story_x").bind("change", function() { redrawMarker(); });
+    $("#story_y").bind("change", function() { redrawMarker(); });
+    redrawMarker();
+    var markerInterval = setInterval(redrawMarker, 500);
+  });

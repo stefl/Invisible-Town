@@ -4,8 +4,11 @@ class Story
   # property <name>, <type>
   property :id, Serial
   property :title, String
-  property :post_id, String
-  property :happened_at, DateTime
+  property :description, Text
+  property :aframe_clip_id, String
+  property :soundcloud_track_id, String
+  property :date_happened, Date
+  property :time_of_day, Time
   property :x, Integer
   property :y, Integer
   belongs_to :map
@@ -14,8 +17,9 @@ class Story
     {
       :id => self.id,
       :title => self.title,
-      :post_id => self.post_id,
-      :happened_at => self.happened_at,
+      :aframe_clip_id => self.aframe_clip_id,
+      :soundcloud_track_id => self.soundcloud_track_id,
+      :date_happened => self.date_happened,
       :x => self.x,
       :y => self.y,
       :map => self.map.slug

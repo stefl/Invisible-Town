@@ -2,12 +2,15 @@
 %html{:lang => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
-    %title Padrino Admin
+    %title Stories from an Invisible Town Admin
     =stylesheet_link_tag :base, "themes/default/style"
+    <link type="text/css" media="screen" rel="stylesheet" href="/stylesheets/admin.css" />
+    <script src='/javascripts/jquery.js' type='text/javascript'></script>
+    
   %body
     #container
       #header
-        %h1=link_to "Padrino Admin", url(:base_index)
+        %h1=link_to "Stories from an Invisible Town Admin", url(:base_index)
         #user-navigation
           %ul.wat-cf
             %li=link_to pat(:profile), url(:accounts, :edit, :id => current_account.id)
@@ -21,11 +24,3 @@
         .flash=[:error, :warning, :notice].map { |type| flash_tag(type, :class => "message #{type}") }.join
         #main
           =yield
-          #footer
-            .block
-              %p
-                Copyright &copy;
-                =Time.now.year
-                Your Site - Powered by
-                =link_to "Padrino v.#{Padrino.version}", "http://padrino.github.com", :target => :_blank
-        #sidebar=yield_content :sidebar

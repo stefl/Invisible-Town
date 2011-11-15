@@ -1,0 +1,48 @@
+.group
+  =f.label :x
+  =f.error_message_on :x
+  =f.number_field :x, :class => :text_field
+
+  =f.label :y
+  =f.error_message_on :y
+  =f.number_field :y, :class => :text_field
+
+.group
+  =f.label :from_id
+  =f.error_message_on :from_id
+
+  %select{:name=>"door[from_id]", :onchange => "console.log(this); $('#map_image').attr('src', $(this).find('option:selected').data().image);"}
+    - maps = Map.all
+    - maps.each do |map|
+      %option{:"data-image" => "/map_images/#{map.slug}.png", :value=>map.id, :selected => @door.from_id == map.id}= map.title
+
+.group
+  =f.label :to_id
+  =f.error_message_on :to_id
+  
+  %select{:name=>"door[to_id]"}
+    - maps = Map.all
+    - maps.each do |map|
+      %option{:"data-image" => "/map_images/#{map.slug}.png", :value=>map.id, :selected => @door.to_id == map.id}= map.title
+
+%img#map_image{:src=>"/map_images/#{@door.from.slug}.png", :width => "800"}
+#marker{:style=>"display: block; position: absolute; z-index: 2000; width: 8px; height: 8px; background-color: black;"}
+
+:javascript
+  $(function() {
+    var $map = $("#map_image");
+    window.redrawMarker = function() {
+      var left = $map.offset().left + (parseInt($("#door_x").val()) * $map.width()/100.0 );
+      console.log(left);
+      $("#marker").css("left", left);
+      $("#marker").css("top", $map.offset().top + (parseInt($("#door_y").val()) * $map.height()/100.0 ));
+    }
+    $("#door_x").bind("change", function() { redrawMarker(); });
+    $("#door_y").bind("change", function() { redrawMarker(); });
+    redrawMarker();
+    var markerInterval = setInterval(redrawMarker, 500);
+  });
+        
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:doors, :index)}';return false", :class => :button

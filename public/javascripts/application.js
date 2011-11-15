@@ -6,11 +6,14 @@ $(function() {
     var $map_image = $("#map_image");
     var $map_markers = $("#map_markers");
     var $map_title = $("#stories_title");
+    var $story = $("#story");
     
     function resetView() {
         $map.height($(window).height());
         $map.width($(window).width());
     }
+    
+    $story.hide();
     
     resetView();
     
@@ -36,8 +39,8 @@ $(function() {
             $.each($map_markers.find("a"), function(i, e) {
                 console.log(e);
                 $e = $(e);
-                $e.css("left", ($e.data().x * ($img.width() / 100.0)) + $img.offset().left + "px")
-                    .css("top", ($e.data().y * ($img.height() / 100.0)) + "px");
+                $e.css("left", ($e.data().x * ($img.width() / 100.0)) + $img.offset().left - 12 + "px")
+                    .css("top", ($e.data().y * ($img.height() / 100.0)) - 12 + "px");
             });
         }
     })
@@ -69,8 +72,6 @@ $(function() {
             $map_markers.empty().hide();
             $.each(map.doors_from, function(i, e) {
                 var $door = $("<a class='tip door' />");
-                console.log(e.x);
-                console.log((e.x * ($img.width() / 100.0)) + $img.offset().left + "px");
                 $door
                     .text("+")
                     .attr("title", "Go to the " + e.to + " map")
@@ -79,8 +80,8 @@ $(function() {
                     .data("y", e.y)
                     .css("position", "absolute")
                     .css("z-index", "10000")
-                    .css("left", (e.x * ($img.width() / 100.0)) + $img.offset().left + "px")
-                    .css("top", (e.y * ($img.height() / 100.0)) + "px")
+                    .css("left", (e.x * ($img.width() / 100.0)) + $img.offset().left - 12 + "px")
+                    .css("top", (e.y * ($img.height() / 100.0)) - 12 + "px")
                     .attr("tabindex", tabindex)
                     .hide()
                     .fadeIn()
@@ -102,41 +103,57 @@ $(function() {
                     .data("y", e.y)
                     .css("position", "absolute")
                     .css("z-index", "10000")
-                    .css("left", (e.x * ($img.width() / 100.0)) + $img.offset().left + "px")
-                    .css("top", (e.y * ($img.height() / 100.0)) + "px")
+                    .css("left", (e.x * ($img.width() / 100.0)) - 12 + $img.offset().left + "px")
+                    .css("top", (e.y * ($img.height() / 100.0)) - 12 + "px")
                     .hide()
                     .fadeIn()
                     .attr("tabindex", tabindex)
-                    .click(function() { showStory($(this).data.story); });
+                    .click(function() { showStory($(this).data().story); });
                 $map_markers.append($story);
                 tabindex = tabindex + 1;
             });
+            
             $(".tip").tipTip();
             $(".story, .door").mouseover(function(){
-                console.log("OVER");
                 $(this).stop().animate({
                     marginTop: '-10px',
                     marginLeft: '-10px',
                     width: '44px',
-                    height: '44px'
+                    height: '44px',
+                    fontSize: '32px'
             
                 })
             });
 
             $(".story, .door").mouseout(function(){
-                console.log("LEAVE");
                 $(this).stop().animate({
                     marginTop: '0px',
                     marginLeft: '0px',
                     width: '24px',
-                    height: '24px'
+                    height: '24px',
+                    fontSize: '16px'
                 })
             });
         });
     }
     
     function showStory(story) {
+        $("#tiptip_holder").fadeOut();
         
+        $story.slideUp(function(){
+            $story.empty();
+            var $title = $("<h1 />").text(story.title);
+            var $done_button = $("<a class='done_button'>Done</a>");
+            $done_button.click(function(){ hideStory(); });
+            $story
+                .append($title)
+                .append($done_button)
+                .slideDown();
+        });
+    }
+    
+    function hideStory() {
+        $story.slideUp();
     }
     
     function goBack() {

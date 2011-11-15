@@ -7,6 +7,7 @@ Admin.controllers :stories do
 
   get :new do
     @story = Story.new
+    @story.map = Map.first
     render 'stories/new'
   end
 

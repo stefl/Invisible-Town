@@ -1,0 +1,33 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:doors, :index)
+      %li=link_to pat(:new), url(:doors, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:doors)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:door, :id)
+          %th=mat(:door, :x)
+          %th=mat(:door, :y)
+          %th=mat(:door, :from_id)
+          %th=mat(:door, :to_id)
+          %th.last="&nbsp;"
+        -@doors.each do |door|
+          %tr
+            %td.first=door.id
+            %td=door.x
+            %td=door.y
+            %td=door.from.slug
+            %td=door.to.slug
+            %td.last
+              =button_to pat(:edit), url(:doors, :edit, :id => door.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:doors, :destroy, :id => door.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

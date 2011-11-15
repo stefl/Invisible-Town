@@ -1,0 +1,42 @@
+@import "compass/css3/box-sizing";
+@import "compass/css3/box-shadow";
+@import "compass/css3/border-radius";
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+#main-navigation {
+  background-color: darken(#2288aa, 5);
+  ul {
+    li {
+      background-color: darken(#2288aa, 5);
+    }
+  }
+}
+
+body textarea {
+  min-height: 12em;
+  padding: 6px;
+}
+
+#header {
+  background-color: #2288aa;
+}
+
+.group {
+  margin-top: 3em;
+  label {
+    font-size: 125%;
+    font-weight: bold;
+  }
+}
+
+.form input.text_field, .form textarea.text_area {
+  border: 2px solid #444;
+  padding: 6px;
+  display: block;
+  @include box-sizing(border-box);
+  font-size: 125%;
+}

@@ -19,6 +19,21 @@ class Admin < Padrino::Application
   # disable :flash                 # Disables sinatra-flash (enabled by default if Sinatra::Flash is defined)
   # layout  :my_layout             # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
   #
+  
+  def date_field_tag(name, options={})
+    options.reverse_merge!(:name => name)
+    input_tag(:date, options)
+  end
+  
+  def time_field_tag(name, options={})
+    options.reverse_merge!(:name => name)
+    input_tag(:time, options)
+  end
+  
+  def number_field_tag(name, options={})
+    options.reverse_merge!(:name => name)
+    input_tag(:number, options)
+  end
 
   set :login_page, "/admin/sessions/new"
 
@@ -31,6 +46,8 @@ class Admin < Padrino::Application
   end
 
   access_control.roles_for :admin do |role|
+    role.project_module :doors, "/doors"
+    role.project_module :maps, "/maps"
     role.project_module :stories, "/stories"
     role.project_module :accounts, "/accounts"
   end

@@ -1,7 +1,9 @@
 @import "compass/css3";
 
+$yellow: #efd500;
+$blue: #26b5e8;
 #header {
-  background-color: rgba(255,255,255, 0.5);
+  background-color: rgba(255,255,212, 0.5);
   position: absolute;
   top: 0px;
   left: 0px;
@@ -32,7 +34,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #ddd;
   #background {
     &:hover {
       background-color: white;
@@ -68,7 +69,7 @@
 }
 
 .door {
-  background-color: green;
+  background-color: $blue;
   width: 24px;
   height: 24px;
   font-size: 16px;
@@ -87,7 +88,7 @@
 }
 
 .story {
-  background-color: red;
+  background-color: $yellow;
   width: 24px;
   height: 24px;
   display: block;
@@ -98,6 +99,31 @@
 body {
   overflow: hidden;
   font-family: "Heletica Neue", helvetica, arial, sans-serif;
+  background-image: url(/images/hh_pattern_transparent.png);
+}
+
+#story {
+  position: absolute;
+  left: 25%;
+  top: 64px;
+  z-index: 5000;
+  width: 50%;
+  background-color: #fefdfa;
+  @include box-shadow(rgba(10,10,0,0.5) 0px 0px 10px inset, rgba(255,255,255,1) 0px 0px 10px);
+  border: 1px rgba(0,0,0,0.3) solid;
+  padding: 1.5em;
+  h1 {
+    font-family: 'Cabin Sketch', cursive;
+    font-weight: normal;
+  }
+}
+
+.done_button {
+  background-color: #ddaa11;
+  color: white;
+  font-weight: bold;
+  padding: 0.5em;
+  cursor: pointer;
 }
 
 /* TipTip CSS - Version 1.2 */

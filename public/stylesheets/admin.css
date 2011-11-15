@@ -1,0 +1,47 @@
+/* line 5, ../../app/stylesheets/admin.scss */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* line 10, ../../app/stylesheets/admin.scss */
+#main-navigation {
+  background-color: #1e7795;
+}
+/* line 13, ../../app/stylesheets/admin.scss */
+#main-navigation ul li {
+  background-color: #1e7795;
+}
+
+/* line 19, ../../app/stylesheets/admin.scss */
+body textarea {
+  min-height: 12em;
+  padding: 6px;
+}
+
+/* line 24, ../../app/stylesheets/admin.scss */
+#header {
+  background-color: #2288aa;
+}
+
+/* line 28, ../../app/stylesheets/admin.scss */
+.group {
+  margin-top: 3em;
+}
+/* line 30, ../../app/stylesheets/admin.scss */
+.group label {
+  font-size: 125%;
+  font-weight: bold;
+}
+
+/* line 36, ../../app/stylesheets/admin.scss */
+.form input.text_field, .form textarea.text_area {
+  border: 2px solid #444;
+  padding: 6px;
+  display: block;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 125%;
+}
