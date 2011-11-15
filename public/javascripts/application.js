@@ -5,6 +5,7 @@ $(function() {
     var $map = $("#map");
     var $map_image = $("#map_image");
     var $map_markers = $("#map_markers");
+    var $map_title = $("#stories_title");
     
     function resetView() {
         $map.height($(window).height());
@@ -45,6 +46,7 @@ $(function() {
         $("#tiptip_holder").fadeOut();
         console.log("Open map");
         console.log(map);
+        $map_title.text(map.title);
         $map.data({map: map});
         $map_image.find("img").fadeOut();
         $map_image.empty();
