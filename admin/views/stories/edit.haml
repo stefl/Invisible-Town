@@ -1,0 +1,15 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first=link_to pat(:list), url(:stories, :index)
+      %li=link_to pat(:new), url(:stories, :new)
+      %li.active=link_to pat(:edit), url(:stories, :edit, :id => @story.id)
+  .content
+    %h2.title
+      =pat(:edit)
+      =mt(:story)
+    .inner
+      -form_for :story, url(:stories, :update, :id => @story.id), :method => :put, :class => :form do |f|
+        =partial "stories/form", :locals => { :f => f }
+
+-content_for :sidebar, partial("base/sidebar")
