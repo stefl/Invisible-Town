@@ -13,16 +13,17 @@
           %th.first=mat(:map, :id)
           %th=mat(:map, :slug)
           %th=mat(:map, :title)
-          %th=mat(:map, :image)
-          %th.last="&nbsp;"
+          %th="&nbsp;"
         -@maps.each do |map|
           %tr
             %td.first=map.id
             %td=map.slug
-            %td=map.title
-            %td=map.image
-            %td.last
-              =button_to pat(:edit), url(:maps, :edit, :id => map.id), :method => :get, :class => :button_to
+            %td= link_to map.title, url(:maps, :edit, :id => map.id)
+            %td
+              %strong
+                =button_to pat(:edit), url(:maps, :edit, :id => map.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:view), "/#maps/#{map.slug}", :method => :get, :class => :button_to
               ="|"
               =button_to pat(:delete), url(:maps, :destroy, :id => map.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
       .actions-bar.wat-cf

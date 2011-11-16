@@ -1,7 +1,51 @@
-// Put your application scripts here
+window.maps = map_data.maps;
+
+
 
 $(function() {
-    var maps;
+    
+    window.InvisibleTownRouter = Backbone.Router.extend({
+
+        routes: {
+            "": "home",
+            "maps/:slug": "map"
+        },
+
+        map: function(slug) {
+            console.log(slug);
+            openMap(getMap(slug));
+        },
+
+        about: function() {
+
+        },
+
+        home: function() {
+            openMap(maps[0]);
+        },
+
+        initialize:function(){
+            console.log("initialize router");
+        }
+
+    });
+
+    window.App = {
+        init: function() {
+            this.router = new InvisibleTownRouter();
+            console.log("start history");
+            try {
+                Backbone.history.start(); //{pushState: true}
+            } catch(e) {
+                console.log(e.stack);
+                console.log("cannot start history");
+                //Backbone.history.start();
+                //openMap(maps[0]);
+            }
+            console.log("history started");
+        }
+    };
+    
     var $map = $("#map");
     var $map_image = $("#map_image");
     var $map_markers = $("#map_markers");
@@ -16,12 +60,7 @@ $(function() {
     $story.hide();
     
     resetView();
-    
-    $.getJSON("/maps.json", function(data) {
-        maps = data.maps;
-        openMap(maps[0]);
-    });
-    
+        
     function getMap(slug) {
         return(_.find(maps, function(m){ 
             return m.slug ==  slug; 
@@ -32,10 +71,10 @@ $(function() {
         var map = $map.data().map;
         if(map) {
             resetView();
-            $map_image.find("img").css("height", $(window).height());
-            var $img = $map_image.find("img");
+            var $img = $map_image.find("img.active");
+            $img.css("height", $(window).height());
             var left = ($(window).width() - $img.width())/2 + "px";
-            $map_image.css({left: left });
+            $img.css({left: left });
             $.each($map_markers.find("a"), function(i, e) {
                 console.log(e);
                 $e = $(e);
@@ -51,19 +90,23 @@ $(function() {
         console.log(map);
         $map_title.text(map.title);
         $map.data({map: map});
-        $map_image.find("img").fadeOut();
-        $map_image.empty();
+        $map_image.find("img").removeClass("active").addClass("inactive").fadeOut(function() { $(this).remove(); });
+        
         $img = $("<img />");
-        $img.attr("src", map.image)
+        $img
+            .addClass("active")
+            .attr("src", map.image)
             .css("height", $(window).height())
+            .css("position", "absolute")
+            .css("top","0px")
             .hide();
         $map.find("#map_image").append($img);
         $img.load(function() {
             var left = ($(window).width() - $img.width())/2 + "px";
-            $map_image.css({left: left });
+            console.log(left);
+            $img.css("left", left);
             $(this).fadeIn(function() {
                 console.log("fade me in");
-                $map_image.width($img.width());
                 $map_markers
                     .fadeIn();
             });
@@ -75,6 +118,7 @@ $(function() {
                 $door
                     .text("+")
                     .attr("title", "Go to the " + e.to + " map")
+                    .attr("href", "/#maps/" + e.to)
                     .data("door", e)
                     .data("x", e.x)
                     .data("y", e.y)
@@ -84,12 +128,8 @@ $(function() {
                     .css("top", (e.y * ($img.height() / 100.0)) - 12 + "px")
                     .attr("tabindex", tabindex)
                     .hide()
-                    .fadeIn()
-                    .click(function() { 
-                        var $elem = $(this);
-                        var map = getMap($elem.data().door.to);
-                        openMap(map); 
-                    });
+                    .fadeIn();
+                    
                 $map_markers.append($door);
                 tabindex = tabindex + 1;
             })
@@ -168,4 +208,6 @@ $(function() {
     });
     
     $(".tip").tipTip();
+    
+    App.init();
 })

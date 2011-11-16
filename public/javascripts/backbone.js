@@ -792,7 +792,13 @@
       if (this._hasPushState) {
         $(window).bind('popstate', this.checkUrl);
       } else if ('onhashchange' in window && !oldIE) {
-        $(window).bind('hashchange', this.checkUrl);
+        console.log("elsif");
+        //console.log($(window));
+        console.log(this.checkUrl);
+        console.log("bind hashchange");
+        var context = this;
+        //$(window).bind('hashchange', function() { context.checkUrl(); });
+        setInterval(this.checkUrl, this.interval);
       } else {
         setInterval(this.checkUrl, this.interval);
       }
