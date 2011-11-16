@@ -105,9 +105,10 @@ $(function() {
             $map_markers.empty().hide();
             $.each(map.doors_from, function(i, e) {
                 var $door = $("<a class='tip door' />");
+                var door_map = getMap(e.to);
                 $door
                     .text("+")
-                    .attr("title", "Go to the " + e.to + " map")
+                    .attr("title", door_map.title)
                     .attr("href", "/#maps/" + e.to)
                     .data("door", e)
                     .data("x", e.x)
