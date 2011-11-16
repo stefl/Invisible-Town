@@ -187,6 +187,10 @@ $(function() {
             if(!_(story.aframe_clip_id).blank()) {
                 $("#aframeTemplate").tmpl(story).appendTo($story);
             }
+            
+            if(!_(story.description).blank()) {
+                $(story.description_html).appendTo($story);
+            }
                 
             $story
                 //.append($done_button)
