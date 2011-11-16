@@ -82,10 +82,8 @@ $blue: #26b5e8;
   display: block;
   @include border-radius(12px);
   @include box-shadow(rgba(0,0,0,0.5) 0px 0px 10px inset, rgba(255,255,255,1) 0px 0px 10px);
-  a {
-    cursor: pointer;
-    text-decoration: none;
-  }
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .story {

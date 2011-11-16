@@ -86,12 +86,9 @@ $(function() {
     
     function openMap(map) {
         $("#tiptip_holder").fadeOut();
-        console.log("Open map");
-        console.log(map);
         $map_title.text(map.title);
         $map.data({map: map});
         $map_image.find("img").removeClass("active").addClass("inactive").fadeOut(function() { $(this).remove(); });
-        
         $img = $("<img />");
         $img
             .addClass("active")
@@ -198,8 +195,7 @@ $(function() {
     
     function goBack() {
         var door = $map.data().map.doors_to[0];
-        console.log(door);
-        openMap(getMap(door.from));
+        document.location.href="/#maps/" + door.from;
     }
     
     $("#background, #stories_title").click(function() {
