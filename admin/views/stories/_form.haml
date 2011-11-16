@@ -14,7 +14,7 @@
 .group
   =f.label "Description"
   =f.error_message_on :description
-  =f.text_field :description, :class => :text_field
+  =f.text_area :description, :class => :text_area
   %span.description Make this story have some text. Leave this blank for photo / video / audio
 
 .group
@@ -22,6 +22,13 @@
   =f.error_message_on :aframe_clip_id
   =f.text_field :aframe_clip_id, :class => :text_field
   %span.description Eg. 74bc12df-c5c1-43ce-af00-3cc0b106cbcc - you get this from the URL bar in Aframe
+
+.group
+  =f.label "Soundcloud track ID"
+  =f.error_message_on :soundcloud_track_id
+  =f.text_field :soundcloud_track_id, :class => :text_field
+  %span.description Eg. 22947033 - you get this from the URL bar in Soundcloud
+
 
 .group
   =f.label "Happened on"
@@ -39,7 +46,7 @@
   %select{:name=>"story[map_id]", :onchange => "console.log(this); $('#map_image').attr('src', $(this).find('option:selected').data().image);"}
     - maps = Map.all
     - maps.each do |map|
-      %option{:"data-image" => "/map_images/#{map.slug}.png", :value=>map.id, :selected => @story.map_id == map.id}= map.title
+      %option{:"data-image" => map.image, :value=>map.id, :selected => @story.map_id == map.id}= map.title
   #x_y
     =f.label :x
     =f.error_message_on :x
@@ -51,7 +58,7 @@
     
   %br
   %span.description Alter these values to position the story on the map
-  %img#map_image{:src=>"/map_images/#{@story.map.slug}.png", :width => "800"}
+  %img#map_image{:src=>@story.map.image, :width => "800"}
   #marker{:style=>"display: block; position: absolute; z-index: 2000; width: 8px; height: 8px; background-color: black;"}
 .group.navform.wat-cf
   =f.submit pat(:save), :class => :button
@@ -68,6 +75,14 @@
     }
     $("#story_x").bind("change", function() { redrawMarker(); });
     $("#story_y").bind("change", function() { redrawMarker(); });
+    $("#map_image").click(function(e) {
+        var offset = $(this).offset();
+        var x = 100*(e.clientX - offset.left)/$(this).width();
+        var y = 100*(e.clientY - offset.top + $(document).scrollTop())/$(this).height();
+        $("#story_x").val(Math.round(x) + "");
+        $("#story_y").val(Math.round(y) + "");
+        redrawMarker();
+    });
     redrawMarker();
     var markerInterval = setInterval(redrawMarker, 500);
   });

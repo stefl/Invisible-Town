@@ -7,11 +7,14 @@ Admin.controllers :doors do
 
   get :new do
     @door = Door.new
+    @door.from = Map.first
+    @door.to = Map.first
     render 'doors/new'
   end
 
   post :create do
     @door = Door.new(params[:door])
+    
     if @door.save
       flash[:notice] = 'Door was successfully created.'
       redirect url(:doors, :edit, :id => @door.id)

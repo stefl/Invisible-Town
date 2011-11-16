@@ -1,7 +1,5 @@
 window.maps = map_data.maps;
 
-
-
 $(function() {
     
     window.InvisibleTownRouter = Backbone.Router.extend({
@@ -12,7 +10,6 @@ $(function() {
         },
 
         map: function(slug) {
-            console.log(slug);
             openMap(getMap(slug));
         },
 
@@ -25,7 +22,6 @@ $(function() {
         },
 
         initialize:function(){
-            console.log("initialize router");
         }
 
     });
@@ -33,16 +29,12 @@ $(function() {
     window.App = {
         init: function() {
             this.router = new InvisibleTownRouter();
-            console.log("start history");
             try {
-                Backbone.history.start(); //{pushState: true}
+                Backbone.history.start();
             } catch(e) {
                 console.log(e.stack);
                 console.log("cannot start history");
-                //Backbone.history.start();
-                //openMap(maps[0]);
             }
-            console.log("history started");
         }
     };
     
@@ -51,13 +43,17 @@ $(function() {
     var $map_markers = $("#map_markers");
     var $map_title = $("#stories_title");
     var $story = $("#story");
+    var $fader = $("#fader");
     
     function resetView() {
         $map.height($(window).height());
         $map.width($(window).width());
+        $("#fader").css("width", $(window).width()).css("height", $(window).height());
     }
     
     $story.hide();
+    $fader.hide();
+    $fader.click(function(){ console.log("hide fader"); hideStory(); });
     
     resetView();
         
@@ -76,7 +72,6 @@ $(function() {
             var left = ($(window).width() - $img.width())/2 + "px";
             $img.css({left: left });
             $.each($map_markers.find("a"), function(i, e) {
-                console.log(e);
                 $e = $(e);
                 $e.css("left", ($e.data().x * ($img.width() / 100.0)) + $img.offset().left - 12 + "px")
                     .css("top", ($e.data().y * ($img.height() / 100.0)) - 12 + "px");
@@ -100,10 +95,8 @@ $(function() {
         $map.find("#map_image").append($img);
         $img.load(function() {
             var left = ($(window).width() - $img.width())/2 + "px";
-            console.log(left);
             $img.css("left", left);
             $(this).fadeIn(function() {
-                console.log("fade me in");
                 $map_markers
                     .fadeIn();
             });
@@ -176,21 +169,34 @@ $(function() {
     
     function showStory(story) {
         $("#tiptip_holder").fadeOut();
+        $fader.fadeIn();
         
         $story.slideUp(function(){
             $story.empty();
             var $title = $("<h1 />").text(story.title);
             var $done_button = $("<a class='done_button'>Done</a>");
             $done_button.click(function(){ hideStory(); });
+            $story.append($title);
+            
+            console.log($story);
+            
+            if(!_(story.soundcloud_track_id).blank()) {
+                $("#soundcloudTemplate").tmpl(story).appendTo($story);
+            }
+            
+            if(!_(story.aframe_clip_id).blank()) {
+                $("#aframeTemplate").tmpl(story).appendTo($story);
+            }
+                
             $story
-                .append($title)
-                .append($done_button)
+                //.append($done_button)
                 .slideDown();
         });
     }
     
     function hideStory() {
-        $story.slideUp();
+        $story.slideUp(function(){ $story.empty(); });
+        $fader.fadeOut();
     }
     
     function goBack() {

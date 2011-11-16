@@ -62,7 +62,7 @@ $blue: #26b5e8;
     z-index: 5;
     position: absolute;
     top: 0;
-    left: 50px;
+    left: 0px;
     margin: auto;
     display: block;
   }
@@ -101,10 +101,18 @@ body {
   background-image: url(/images/hh_pattern_transparent.png);
 }
 
+#fader {
+  background-color: rgba(255,255,255,0.5);
+  z-index: 4000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 #story {
   position: absolute;
   left: 25%;
-  top: 64px;
+  top: 0px;
   z-index: 5000;
   width: 50%;
   background-color: #fefdfa;
@@ -114,6 +122,8 @@ body {
   h1 {
     font-family: 'Cabin Sketch', cursive;
     font-weight: normal;
+    padding: 0px;
+    margin-top: 0px;
   }
 }
 

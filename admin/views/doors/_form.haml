@@ -14,7 +14,7 @@
   %select{:name=>"door[from_id]", :onchange => "console.log(this); $('#map_image').attr('src', $(this).find('option:selected').data().image);"}
     - maps = Map.all
     - maps.each do |map|
-      %option{:"data-image" => "/map_images/#{map.slug}.png", :value=>map.id, :selected => @door.from_id == map.id}= map.title
+      %option{:"data-image" => map.image, :value=>map.id, :selected => @door.from_id == map.id}= map.title
 
 .group
   =f.label :to_id
@@ -23,9 +23,9 @@
   %select{:name=>"door[to_id]"}
     - maps = Map.all
     - maps.each do |map|
-      %option{:"data-image" => "/map_images/#{map.slug}.png", :value=>map.id, :selected => @door.to_id == map.id}= map.title
+      %option{:"data-image" => map.image, :value=>map.id, :selected => @door.to_id == map.id}= map.title
 
-%img#map_image{:src=>"/map_images/#{@door.from.slug}.png", :width => "800"}
+%img#map_image{:src=>@door.from.image, :width => "800"}
 #marker{:style=>"display: block; position: absolute; z-index: 2000; width: 8px; height: 8px; background-color: black;"}
 
 :javascript
@@ -39,6 +39,15 @@
     }
     $("#door_x").bind("change", function() { redrawMarker(); });
     $("#door_y").bind("change", function() { redrawMarker(); });
+    
+    $("#map_image").click(function(e) {
+        var offset = $(this).offset();
+        var x = 100*(e.clientX - offset.left)/$(this).width();
+        var y = 100*(e.clientY - offset.top + $(document).scrollTop())/$(this).height();
+        $("#door_x").val(Math.round(x) + "");
+        $("#door_y").val(Math.round(y) + "");
+        redrawMarker();
+    });
     redrawMarker();
     var markerInterval = setInterval(redrawMarker, 500);
   });
