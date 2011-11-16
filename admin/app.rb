@@ -46,9 +46,9 @@ class Admin < Padrino::Application
   end
 
   access_control.roles_for :admin do |role|
-    role.project_module :doors, "/doors"
-    role.project_module :maps, "/maps"
     role.project_module :stories, "/stories"
+    role.project_module :maps, "/maps"    
+    role.project_module :doors, "/doors"
     role.project_module :accounts, "/accounts"
   end
 end

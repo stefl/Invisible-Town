@@ -2,7 +2,34 @@
   .content
     %h2.title Dashboard
     .inner
-      %p.first
+      %p
         Using this admin area you can control the content for the Stories from an Invisible Town app.
-
+      
+    %h2
+      %a{:href=>"/admin/stories"}
+        Stories
+    .inner
+      %p
+        Stories are the video, audio, photo and text that are placed on the maps.
+    
+    %h2
+      %a{:href=>"/admin/maps"}
+        Maps
+    .inner
+      %p
+        These are a set of images that stories can be placed on.
+      
+    %h2
+      %a{:href=>"/admin/doors"}
+        Doors
+    .inner
+      %p
+        You navigate between the maps using doors. These appear as clickable links that take you from one map into another.
+    %h2
+      %a{:href=>"/admin/accounts"}
+        Accounts
+    .inner
+      %p
+        You can decide who has administrator access to make changes and access this area.
+        
 -content_for :sidebar, partial("base/sidebar")
