@@ -29,6 +29,12 @@
   =f.text_field :soundcloud_track_id, :class => :text_field
   %span.description Eg. 22947033 - you get this from the URL bar in Soundcloud
 
+.group
+  =f.label "Image URL"
+  =f.error_message_on :image_url
+  =f.text_field :image_url, :class => :text_field
+  %span.description Eg. http://i1111.photobucket.com/albums/h479/steflewandowski/photo.jpg
+
 
 .group
   =f.label "Happened on"
