@@ -189,6 +189,10 @@ $(function() {
                 $("#aframeTemplate").tmpl(story).appendTo($story);
             }
             
+            if(!_(story.image_url).blank()) {
+                $("imageTemplate").tmpl(story).appendTo($story);
+            }
+            
             if(!_(story.description).blank()) {
                 $(story.description_html).appendTo($story);
             }

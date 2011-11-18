@@ -7,6 +7,7 @@ class Story
   property :description, Text
   property :aframe_clip_id, String
   property :soundcloud_track_id, String
+  property :image_url, String
   property :date_happened, Date
   property :time_of_day, Time
   property :x, Integer
