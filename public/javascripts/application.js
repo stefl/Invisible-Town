@@ -190,7 +190,7 @@ $(function() {
             }
             
             if(!_(story.image_url).blank()) {
-                $("imageTemplate").tmpl(story).appendTo($story);
+                $("#imageTemplate").tmpl(story).appendTo($story);
             }
             
             if(!_(story.description).blank()) {
