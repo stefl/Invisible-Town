@@ -31,6 +31,7 @@ class Story
       :title => self.title,
       :aframe_clip_id => self.aframe_clip_id,
       :soundcloud_track_id => self.soundcloud_track_id,
+      :image_url => self.image_url,
       :date_happened => self.date_happened,
       :description => self.description,
       :description_html => simple_format(self.description),
