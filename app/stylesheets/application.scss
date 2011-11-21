@@ -110,6 +110,7 @@ body {
 }
 
 #story {
+  display: none;
   position: absolute;
   left: 25%;
   top: 0px;
@@ -127,6 +128,21 @@ body {
   }
 }
 
+#back {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 9500;
+  background-color: rgba(255,255,255,0.2);
+  padding: 1em;
+  font-size: 64px;
+  color: #888;
+  cursor: pointer;
+  &:hover {
+    color: black;
+  }
+}
 .done_button {
   background-color: #ddaa11;
   color: white;

@@ -6,10 +6,12 @@ $(function() {
 
         routes: {
             "": "home",
+            "maps/:slug/stories/:id": "story",
             "maps/:slug": "map"
         },
 
         map: function(slug) {
+            console.log("Map route");
             openMap(getMap(slug));
         },
 
@@ -19,6 +21,15 @@ $(function() {
 
         home: function() {
             openMap(maps[0]);
+        },
+        
+        story: function(slug, id) {
+            console.log("Story route");
+            var map = getMap(slug);
+            openMap(map);
+            var story = getStory(map, id);
+            console.log(story);
+            setTimeout(function() { showStory(story); }, 1000);
         },
 
         initialize:function(){
@@ -44,6 +55,7 @@ $(function() {
     var $map_title = $("#stories_title");
     var $story = $("#story");
     var $fader = $("#fader");
+    var $back = $("#back");
     
     function resetView() {
         $map.height($(window).height());
@@ -53,13 +65,22 @@ $(function() {
     
     $story.hide();
     $fader.hide();
-    $fader.click(function(){ console.log("hide fader"); hideStory(); });
+    $back.hide();
+    
+    $fader.click(function(){ hideStory(); });
+    $back.click(function(){ window.history.back(); });
     
     resetView();
         
     function getMap(slug) {
         return(_.find(maps, function(m){ 
             return m.slug ==  slug; 
+        }));
+    }
+    
+    function getStory(map, id) {
+        return(_.find(map.stories, function(m) {
+            return m.id == id;
         }));
     }
     
@@ -80,6 +101,8 @@ $(function() {
     })
     
     function openMap(map) {
+        console.log("openMap");
+        hideStory();
         $("#tiptip_holder").fadeOut();
         $map_title.text(map.title);
         $map.data({map: map});
@@ -123,12 +146,20 @@ $(function() {
                     
                 $map_markers.append($door);
                 tabindex = tabindex + 1;
-            })
+            });
+            
+            if(map.doors_to.length == 0) {
+                $back.fadeOut();
+            }
+            else {
+              $back.fadeIn();
+            }
     
             $.each(map.stories, function(i, e) {
                 var $story = $("<a class='tip story' />");
                 $story
                     .attr("title", e.title)
+                    .attr("href", "#maps/" + map.slug + "/stories/" + e.id)
                     .data("story", e)
                     .data("x", e.x)
                     .data("y", e.y)
@@ -139,7 +170,6 @@ $(function() {
                     .hide()
                     .fadeIn()
                     .attr("tabindex", tabindex)
-                    .click(function() { showStory($(this).data().story); });
                 $map_markers.append($story);
                 tabindex = tabindex + 1;
             });
@@ -169,6 +199,7 @@ $(function() {
     }
     
     function showStory(story) {
+        console.log("showStory");
         $("#tiptip_holder").fadeOut();
         $fader.fadeIn();
         
@@ -204,6 +235,7 @@ $(function() {
     }
     
     function hideStory() {
+        console.log("hideStory");
         $story.slideUp(function(){ $story.empty(); });
         $fader.fadeOut();
     }
