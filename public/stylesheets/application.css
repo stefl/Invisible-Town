@@ -174,13 +174,14 @@ body {
   font-size: 64px;
   color: #888;
   cursor: pointer;
+  text-decoration: none;
 }
-/* line 142, ../../app/stylesheets/application.scss */
+/* line 143, ../../app/stylesheets/application.scss */
 #back:hover {
   color: black;
 }
 
-/* line 146, ../../app/stylesheets/application.scss */
+/* line 147, ../../app/stylesheets/application.scss */
 .done_button {
   background-color: #ddaa11;
   color: white;
@@ -190,7 +191,7 @@ body {
 }
 
 /* TipTip CSS - Version 1.2 */
-/* line 156, ../../app/stylesheets/application.scss */
+/* line 157, ../../app/stylesheets/application.scss */
 #tiptip_holder {
   font-family: 'Cabin Sketch', cursive;
   display: none;
@@ -200,27 +201,27 @@ body {
   z-index: 99999;
 }
 
-/* line 165, ../../app/stylesheets/application.scss */
+/* line 166, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top {
   padding-bottom: 5px;
 }
 
-/* line 169, ../../app/stylesheets/application.scss */
+/* line 170, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom {
   padding-top: 5px;
 }
 
-/* line 173, ../../app/stylesheets/application.scss */
+/* line 174, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right {
   padding-left: 5px;
 }
 
-/* line 177, ../../app/stylesheets/application.scss */
+/* line 178, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left {
   padding-right: 5px;
 }
 
-/* line 181, ../../app/stylesheets/application.scss */
+/* line 182, ../../app/stylesheets/application.scss */
 #tiptip_content {
   font-size: 125%;
   color: #000;
@@ -238,7 +239,7 @@ body {
   -moz-box-shadow: 0 0 3px #555;
 }
 
-/* line 198, ../../app/stylesheets/application.scss */
+/* line 199, ../../app/stylesheets/application.scss */
 #tiptip_arrow, #tiptip_arrow_inner {
   position: absolute;
   border-color: transparent;
@@ -248,31 +249,31 @@ body {
   width: 0;
 }
 
-/* line 207, ../../app/stylesheets/application.scss */
+/* line 208, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top #tiptip_arrow {
   border-top-color: #222;
   border-top-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 212, ../../app/stylesheets/application.scss */
+/* line 213, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom #tiptip_arrow {
   border-bottom-color: #222;
   border-bottom-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 217, ../../app/stylesheets/application.scss */
+/* line 218, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right #tiptip_arrow {
   border-right-color: #222;
   border-right-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 222, ../../app/stylesheets/application.scss */
+/* line 223, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left #tiptip_arrow {
   border-left-color: #222;
   border-left-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 227, ../../app/stylesheets/application.scss */
+/* line 228, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top #tiptip_arrow_inner {
   margin-top: -7px;
   margin-left: -6px;
@@ -280,7 +281,7 @@ body {
   border-top-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 234, ../../app/stylesheets/application.scss */
+/* line 235, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom #tiptip_arrow_inner {
   margin-top: -5px;
   margin-left: -6px;
@@ -288,7 +289,7 @@ body {
   border-bottom-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 241, ../../app/stylesheets/application.scss */
+/* line 242, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right #tiptip_arrow_inner {
   margin-top: -6px;
   margin-left: -5px;
@@ -296,7 +297,7 @@ body {
   border-right-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 248, ../../app/stylesheets/application.scss */
+/* line 249, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left #tiptip_arrow_inner {
   margin-top: -6px;
   margin-left: -7px;
@@ -306,18 +307,18 @@ body {
 
 /* Webkit Hacks  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-  /* line 257, ../../app/stylesheets/application.scss */
+  /* line 258, ../../app/stylesheets/application.scss */
   #tiptip_content {
     padding: 4px 8px 5px 8px;
     background-color: rgba(245, 245, 245, 0.88);
   }
 
-  /* line 261, ../../app/stylesheets/application.scss */
+  /* line 262, ../../app/stylesheets/application.scss */
   #tiptip_holder.tip_bottom #tiptip_arrow_inner {
     border-bottom-color: rgba(245, 245, 245, 0.88);
   }
 
-  /* line 264, ../../app/stylesheets/application.scss */
+  /* line 265, ../../app/stylesheets/application.scss */
   #tiptip_holder.tip_top #tiptip_arrow_inner {
     border-top-color: rgba(220, 220, 220, 0.92);
   }
