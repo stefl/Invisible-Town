@@ -226,19 +226,21 @@ $(function() {
         }
         $(".story").removeClass("viewing");
         $viewing_story.addClass("viewing");
+        console.log($viewing_story.attr("href"));
         document.location.href = $viewing_story.attr("href");
     }
     
     function prevStory() {
-        var $viewing_story = $(".story.viewing").prev();
+        var $viewing_story = $(".story.viewing").prev().find(".story");
         if($viewing_story.size() == 0) {
-            $viewing_story = $(".story").first();
+            $viewing_story = $(".story").last();
         }
         if($viewing_story.size() == 0) {
             return(false)
         }
         $(".story").removeClass("viewing");
         $viewing_story.addClass("viewing");
+        console.log($viewing_story.attr("href"));
         document.location.href = $viewing_story.attr("href");    
     }
     
