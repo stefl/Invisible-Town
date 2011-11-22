@@ -56,19 +56,9 @@ $(function() {
     var $tip_holder = $("#tiptip_holder");
     var currentMap;
     
-    function resetView() {
-        $map.height($(window).height());
-        $map.width($(window).width());
-        $fader.css("width", $(window).width()).css("height", $(window).height());
-    }
-    
     $story.hide();
     $fader.hide();
     $back.hide();
-    
-    $fader.click(function(){ document.location.href = "#maps/" + currentMap.slug; });
-    
-    resetView();
         
     function getMap(slug) {
         return(_.find(maps, function(m){ 
@@ -82,29 +72,21 @@ $(function() {
         }));
     }
     
-    $(window).bind("resize", function() {
-        var map = $map.data().map;
-        if(map) {
-            resetView();
-            var $img = $map_image.find("img.active");
-            $img.css("height", $(window).height());
-            var left = ($(window).width() - $img.width())/2 + "px";
-            $img.css({left: left });
-            $.each($map_markers.find("a"), function(i, e) {
-                $e = $(e);
-                $e.css("left", ($e.data().x * ($img.width() / 100.0)) + $img.offset().left - 12 + "px")
-                    .css("top", ($e.data().y * ($img.height() / 100.0)) - 12 + "px");
-            });
-        }
-    })
+    function resetView() {
+        $map.height($(window).height());
+        $map.width($(window).width());
+        $fader.css("width", $(window).width()).css("height", $(window).height());
+    }
     
     function showMap(map) {
-        currentMap = map;
-        console.log("showMap");
         hideStory();
-        
-        $fader.stop().fadeOut();
+        $fader.hide();
         $tip_holder.fadeOut();
+        if(map == currentMap) {
+            return(false);
+        }
+        currentMap = map;
+        
         $map_title.text(map.title);
         $map.data({map: map});
         $map_image.find("img").removeClass("active").addClass("inactive").fadeOut(function() { $(this).remove(); });
@@ -203,17 +185,15 @@ $(function() {
     function showStory(story) {
         console.log("showStory");
         $("#tiptip_holder").fadeOut();
-        $fader.stop().fadeIn();
+        $fader.show();
         
         $story.slideUp(function(){
             $story.empty();
             var $title = $("<h1 />").text(story.title);
             var $done_button = $("<a class='done_button'>Done</a>");
-            $done_button.click(function(){ hideStory(); $fader.stop().fadeOut(); });
+            $done_button.click(function(){ hideStory(); $fader.hide(); });
             $story.append($title);
-            
-            console.log($story);
-            
+                        
             if(!_(story.soundcloud_track_id).blank()) {
                 $("#soundcloudTemplate").tmpl(story).appendTo($story);
             }
@@ -236,6 +216,32 @@ $(function() {
         });
     }
     
+    function nextStory() {
+        var $viewing_story = $(".story.viewing").next();
+        if($viewing_story.size() == 0) {
+            $viewing_story = $(".story").first();
+        }
+        if($viewing_story.size() == 0) {
+            return(false)
+        }
+        $(".story").removeClass("viewing");
+        $viewing_story.addClass("viewing");
+        document.location.href = $viewing_story.attr("href");
+    }
+    
+    function prevStory() {
+        var $viewing_story = $(".story.viewing").prev();
+        if($viewing_story.size() == 0) {
+            $viewing_story = $(".story").first();
+        }
+        if($viewing_story.size() == 0) {
+            return(false)
+        }
+        $(".story").removeClass("viewing");
+        $viewing_story.addClass("viewing");
+        document.location.href = $viewing_story.attr("href");    
+    }
+    
     function hideStory() {
         console.log("hideStory");
         $story.slideUp(function(){ $story.empty(); });
@@ -246,7 +252,62 @@ $(function() {
         return(false);
     });
     
+    $(window).bind("resize", function() {
+        var map = $map.data().map;
+        if(map) {
+            resetView();
+            var $img = $map_image.find("img.active");
+            $img.css("height", $(window).height());
+            var left = ($(window).width() - $img.width())/2 + "px";
+            $img.css({left: left });
+            $.each($map_markers.find("a"), function(i, e) {
+                $e = $(e);
+                $e.css("left", ($e.data().x * ($img.width() / 100.0)) + $img.offset().left - 12 + "px")
+                    .css("top", ($e.data().y * ($img.height() / 100.0)) - 12 + "px");
+            });
+        }
+    });
+    
     $(".tip").tipTip();
+    
+    $(window).bind("keydown", function(e) {
+       
+        var key = e.keyCode;
+        var esc = 27;
+        var left_arrow = 37;
+        var right_arrow = 39;
+        var down_arrow = 40;
+        var up_arrow = 38;
+       
+        if(key == esc) {
+           // Hide the current story
+           document.location.href = "#maps/" + currentMap.slug;
+        }
+        else if(key == left_arrow) {
+           // Previous story
+           prevStory();
+        }
+        else if(key == right_arrow) {
+           // Next story
+           nextStory();
+        }
+        else if(key == up_arrow) {
+            // Back up a map level
+            if(currentMap.doors_to.size != 0) {
+                document.location.href = "#maps/" + currentMap.doors_to[0].from;
+            }
+        }
+        else if(key == down_arrow) {
+            // Down a map level
+            if(currentMap.doors_from.size != 0) {
+                document.location.href = "#maps/" + currentMap.doors_from[0].to;
+            }
+        }
+    });
+    
+    $fader.click(function(){ document.location.href = "#maps/" + currentMap.slug; });
+    
+    resetView();
     
     App.init();
 })
