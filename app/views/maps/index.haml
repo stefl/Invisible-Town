@@ -1,2 +1,2 @@
 :javascript
-  var map_data = #{Map.all_json_summary.to_json}
+  var map_data = #{Map.all_json_summary(:hour => Time.now.hour).to_json}

@@ -1,7 +1,6 @@
 class Story
   include DataMapper::Resource
 
-  # property <name>, <type>
   property :id, Serial
   property :title, String
   property :description, Text
@@ -10,6 +9,8 @@ class Story
   property :image_url, String
   property :date_happened, Date
   property :time_of_day, Time
+  property :viewable_from, Integer
+  property :viewable_to, Integer
   property :x, Integer
   property :y, Integer
   belongs_to :map

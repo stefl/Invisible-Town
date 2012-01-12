@@ -45,6 +45,22 @@
   =f.error_message_on :time_of_day
   =f.time_field :time_of_day, :class => :time_field
 
+.group
+  =f.label "Can be viewed between the hours of"
+  =f.error_message_on :viewable_from
+  %select{:name=>"story[viewable_from]"}
+    %option{:value => 0, :selected => (@story.viewable_from.blank? || @story.viewable_from == 0) } Any time
+    - (1..24).each do |hour|
+      %option{:value => hour, :selected => (@story.viewable_from == hour) }= hour
+  =f.label "and"
+  =f.error_message_on :viewable_to
+  %select{:name=>"story[viewable_to]"}
+    %option{:value => 0, :selected => (@story.viewable_to.blank? || @story.viewable_to == 0) } Any time
+    - (1..24).each do |hour|
+      %option{:value => hour, :selected => (@story.viewable_to == hour) }= hour
+
+  %span.description Specify when a story can be viewed on the website
+
 
 .group
   =f.label :map_id

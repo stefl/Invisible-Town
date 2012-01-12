@@ -5,7 +5,7 @@ InvisibleTown.controllers :maps do
   end
   
   get :index, :map => "/maps", :provides => [:json] do
-    Map.all_json_summary.to_json
+    Map.all_json_summary(:hour => params[:hour]).to_json
   end
   
 end
