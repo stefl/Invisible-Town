@@ -6,6 +6,7 @@ class Map
   property :slug, String
   property :title, String
   property :image, String
+  property :greetings, Text
 
   has n, :stories
   has n, :doors_to, :model => "Door", :child_key => [:to_id]
@@ -28,6 +29,7 @@ class Map
       :slug => self.slug,
       :title => self.title,
       :image => self.image,
+      :greetings => self.greetings.to_s.split("\n"),
       :stories => json_stories.collect {|s| s.json_summary },
       :doors_from => self.doors_from.collect {|d| d.json_summary},
       :doors_to => self.doors_to.collect {|d| d.json_summary}

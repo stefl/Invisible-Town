@@ -16,6 +16,7 @@
     = favicon_tag 'favicon.ico'
     <link href='http://fonts.googleapis.com/css?family=Cabin+Sketch' rel='stylesheet' type='text/css'>
     %script{:src=>"/javascripts/modernizr-2.0.6.min.js",:type=>"text/javascript"}
+    %link{:href => "/stylesheets/apprise.min.css", :media => "screen, projection", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "/stylesheets/application.css", :media => "screen, projection", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "/stylesheets/print.css", :media => "print", :rel => "stylesheet", :type => "text/css"}/
     /[if IE]
@@ -25,6 +26,7 @@
       %h1
         %a#stories_title{:href=>"/"}
           Stories from an Invisible Town
+      %p#greeting
     #page.container
       %a#back &larr;
       #story
@@ -55,5 +57,6 @@
   %script{:src=>"/javascripts/jquery.tmpl.js", :type=>"text/javascript"}
   %script{:src=>"/javascripts/jquery-ujs.js", :type=>"text/javascript"}
   %script{:src=>"/javascripts/jquery.tipTip.js", :type=>"text/javascript"}
+  %script{:src=>"/javascripts/apprise-1.5.min.js", :type=>"text/javascript"}   
   %script{:src=>"/javascripts/application.js", :type=>"text/javascript"}   
   = yield_content :scripts

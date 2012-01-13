@@ -11,7 +11,13 @@ $(function() {
         },
 
         map: function(slug) {
-            showMap(getMap(slug));
+            var map = getMap(slug);
+            if(map) {
+              showMap(map);
+            }
+            else {
+                apprise("Sorry, I can't find where you're trying to go...");
+            }
         },
 
         about: function() {
@@ -24,9 +30,19 @@ $(function() {
         
         story: function(slug, id) {
             var map = getMap(slug);
-            showMap(map);
+            if(map) {
+              showMap(map);
+            }
+            else {
+                apprise("Sorry, I can't find where you're trying to go...");
+            }
             var story = getStory(map, id);
-            showStory(story);
+            if(story) {
+              showStory(story);
+            }
+            else {
+                apprise("Sorry, I can't find that story. It might only be available at certain times of day?");
+            }
         },
 
         initialize:function(){
@@ -50,6 +66,7 @@ $(function() {
     var $map_image = $("#map_image");
     var $map_markers = $("#map_markers");
     var $map_title = $("#stories_title");
+    var $greeting = $("#greeting");
     var $fader = $("#fader");
     var $story = $("#story");
     var $back = $("#back");
@@ -88,6 +105,11 @@ $(function() {
         currentMap = map;
         
         $map_title.text(map.title);
+        console.log(map.greetings);
+        $greeting.hide();
+        $greeting.text("");
+        $greeting.text(map.greetings[Math.floor ( Math.random() * map.greetings.length )]);
+        $greeting.delay(1500).fadeIn();
         $map.data({map: map});
         $map_image.find("img").removeClass("active").addClass("inactive").fadeOut(function() { $(this).remove(); });
         $img = $("<img />");

@@ -2,20 +2,25 @@
   =f.label :slug
   =f.error_message_on :slug
   =f.text_field :slug, :class => :text_field
-  %span.description Ex: a simple text
+  %span.description This is what appears in the URL. Once set, you should not change this
 
 .group
   =f.label :title
   =f.error_message_on :title
   =f.text_field :title, :class => :text_field
-  %span.description Ex: a simple text
+  %span.description What the user sees as the name of this map
 
 .group
   =f.label :image
   =f.error_message_on :image
   =f.text_field :image, :class => :text_field
-  %span.description Ex: a simple text
+  %span.description A URL to an image. Upload an image somewhere and put the URL here.
 
+.group
+  =f.label :greetings
+  =f.error_message_on :greetings
+  ~f.text_area :greetings, :class => :text_area
+  %span.description A set of 'greetings' that will be displayed to the user at random on visiting this map. One per line, no blank lines.  
 
 .group.navform.wat-cf
   =f.submit pat(:save), :class => :button
