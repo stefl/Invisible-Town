@@ -20,6 +20,12 @@ a:hover {
 }
 
 /* line 23, ../../app/stylesheets/application.scss */
+h1, h2, p {
+  font-weight: normal;
+  color: #566;
+}
+
+/* line 28, ../../app/stylesheets/application.scss */
 #header {
   position: absolute;
   top: 0px;
@@ -28,26 +34,26 @@ a:hover {
   height: 4.5em;
   z-index: 2000;
 }
-/* line 30, ../../app/stylesheets/application.scss */
+/* line 35, ../../app/stylesheets/application.scss */
 #header h1 {
-  color: #333;
+  color: #566;
   text-align: center;
   font-family: 'Cabin Sketch', cursive;
   font-size: 200%;
   font-weight: normal;
   text-shadow: white 0px 1px 0px;
 }
-/* line 37, ../../app/stylesheets/application.scss */
+/* line 42, ../../app/stylesheets/application.scss */
 #header h1 a {
   color: #333;
   text-decoration: none;
 }
-/* line 40, ../../app/stylesheets/application.scss */
+/* line 45, ../../app/stylesheets/application.scss */
 #header h1 a:hover {
   color: #464;
 }
 
-/* line 47, ../../app/stylesheets/application.scss */
+/* line 52, ../../app/stylesheets/application.scss */
 #map {
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 40px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 40px inset;
@@ -59,7 +65,7 @@ a:hover {
   top: 0;
   left: 0;
 }
-/* line 54, ../../app/stylesheets/application.scss */
+/* line 59, ../../app/stylesheets/application.scss */
 #map #background {
   width: 100%;
   height: 100%;
@@ -67,11 +73,11 @@ a:hover {
   top: 0;
   left: 0;
 }
-/* line 55, ../../app/stylesheets/application.scss */
+/* line 60, ../../app/stylesheets/application.scss */
 #map #background:hover {
   cursor: pointer;
 }
-/* line 64, ../../app/stylesheets/application.scss */
+/* line 69, ../../app/stylesheets/application.scss */
 #map #map_markers {
   position: absolute;
   height: 100%;
@@ -82,11 +88,11 @@ a:hover {
   margin: auto;
   display: block;
 }
-/* line 73, ../../app/stylesheets/application.scss */
+/* line 78, ../../app/stylesheets/application.scss */
 #map #map_markers a {
   cursor: pointer;
 }
-/* line 77, ../../app/stylesheets/application.scss */
+/* line 82, ../../app/stylesheets/application.scss */
 #map #map_image {
   z-index: 5;
   position: absolute;
@@ -95,7 +101,7 @@ a:hover {
   margin: auto;
   display: block;
 }
-/* line 84, ../../app/stylesheets/application.scss */
+/* line 89, ../../app/stylesheets/application.scss */
 #map #map_image img {
   border: 4px solid white;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
@@ -104,8 +110,9 @@ a:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
 }
 
-/* line 91, ../../app/stylesheets/application.scss */
+/* line 96, ../../app/stylesheets/application.scss */
 .door {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #26b5e8;
   width: 24px;
   height: 24px;
@@ -131,7 +138,7 @@ a:hover {
   cursor: pointer;
 }
 
-/* line 109, ../../app/stylesheets/application.scss */
+/* line 115, ../../app/stylesheets/application.scss */
 .story {
   background-color: #efd500;
   width: 24px;
@@ -149,7 +156,7 @@ a:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px inset, white 0px 0px 10px;
 }
 
-/* line 118, ../../app/stylesheets/application.scss */
+/* line 124, ../../app/stylesheets/application.scss */
 body {
   overflow: hidden;
   font-family: 'Cabin Sketch', cursive;
@@ -159,9 +166,10 @@ body {
   background: -o-radial-gradient(#ffffff, #8888bb);
   background: -ms-radial-gradient(#ffffff, #8888bb);
   background: radial-gradient(#ffffff, #8888bb);
+  color: #566;
 }
 
-/* line 124, ../../app/stylesheets/application.scss */
+/* line 131, ../../app/stylesheets/application.scss */
 #fader {
   background-color: rgba(255, 255, 255, 0.5);
   z-index: 4000;
@@ -170,7 +178,7 @@ body {
   left: 0;
 }
 
-/* line 132, ../../app/stylesheets/application.scss */
+/* line 139, ../../app/stylesheets/application.scss */
 #story {
   display: none;
   position: absolute;
@@ -186,7 +194,7 @@ body {
   border: 1px rgba(0, 0, 0, 0.2) solid;
   padding: 1.5em;
 }
-/* line 143, ../../app/stylesheets/application.scss */
+/* line 150, ../../app/stylesheets/application.scss */
 #story h1 {
   font-family: 'Cabin Sketch', cursive;
   font-weight: normal;
@@ -194,26 +202,36 @@ body {
   margin-top: 0px;
 }
 
-/* line 151, ../../app/stylesheets/application.scss */
+/* line 158, ../../app/stylesheets/application.scss */
 #back {
   display: none;
   position: absolute;
   top: 0px;
   left: 0px;
   z-index: 9500;
-  background-color: rgba(255, 255, 255, 0.2);
   padding: 1em;
   font-size: 64px;
   color: #888;
   cursor: pointer;
   text-decoration: none;
 }
-/* line 163, ../../app/stylesheets/application.scss */
+/* line 169, ../../app/stylesheets/application.scss */
 #back:hover {
   color: black;
 }
 
-/* line 167, ../../app/stylesheets/application.scss */
+/* line 174, ../../app/stylesheets/application.scss */
+#greeting {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 180px;
+  z-index: 10;
+  background-color: white;
+  padding: 0.3em;
+}
+
+/* line 184, ../../app/stylesheets/application.scss */
 .done_button {
   background-color: #ddaa11;
   color: white;
@@ -223,7 +241,7 @@ body {
 }
 
 /* TipTip CSS - Version 1.2 */
-/* line 177, ../../app/stylesheets/application.scss */
+/* line 194, ../../app/stylesheets/application.scss */
 #tiptip_holder {
   font-family: 'Cabin Sketch', cursive;
   display: none;
@@ -233,27 +251,27 @@ body {
   z-index: 99999;
 }
 
-/* line 186, ../../app/stylesheets/application.scss */
+/* line 203, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top {
   padding-bottom: 5px;
 }
 
-/* line 190, ../../app/stylesheets/application.scss */
+/* line 207, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom {
   padding-top: 5px;
 }
 
-/* line 194, ../../app/stylesheets/application.scss */
+/* line 211, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right {
   padding-left: 5px;
 }
 
-/* line 198, ../../app/stylesheets/application.scss */
+/* line 215, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left {
   padding-right: 5px;
 }
 
-/* line 202, ../../app/stylesheets/application.scss */
+/* line 219, ../../app/stylesheets/application.scss */
 #tiptip_content {
   font-size: 125%;
   color: #000;
@@ -271,7 +289,7 @@ body {
   -moz-box-shadow: 0 0 3px #555;
 }
 
-/* line 219, ../../app/stylesheets/application.scss */
+/* line 236, ../../app/stylesheets/application.scss */
 #tiptip_arrow, #tiptip_arrow_inner {
   position: absolute;
   border-color: transparent;
@@ -281,31 +299,31 @@ body {
   width: 0;
 }
 
-/* line 228, ../../app/stylesheets/application.scss */
+/* line 245, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top #tiptip_arrow {
   border-top-color: #222;
   border-top-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 233, ../../app/stylesheets/application.scss */
+/* line 250, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom #tiptip_arrow {
   border-bottom-color: #222;
   border-bottom-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 238, ../../app/stylesheets/application.scss */
+/* line 255, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right #tiptip_arrow {
   border-right-color: #222;
   border-right-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 243, ../../app/stylesheets/application.scss */
+/* line 260, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left #tiptip_arrow {
   border-left-color: #222;
   border-left-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 248, ../../app/stylesheets/application.scss */
+/* line 265, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top #tiptip_arrow_inner {
   margin-top: -7px;
   margin-left: -6px;
@@ -313,7 +331,7 @@ body {
   border-top-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 255, ../../app/stylesheets/application.scss */
+/* line 272, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom #tiptip_arrow_inner {
   margin-top: -5px;
   margin-left: -6px;
@@ -321,7 +339,7 @@ body {
   border-bottom-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 262, ../../app/stylesheets/application.scss */
+/* line 279, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right #tiptip_arrow_inner {
   margin-top: -6px;
   margin-left: -5px;
@@ -329,7 +347,7 @@ body {
   border-right-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 269, ../../app/stylesheets/application.scss */
+/* line 286, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left #tiptip_arrow_inner {
   margin-top: -6px;
   margin-left: -7px;
@@ -339,23 +357,23 @@ body {
 
 /* Webkit Hacks  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-  /* line 278, ../../app/stylesheets/application.scss */
+  /* line 295, ../../app/stylesheets/application.scss */
   #tiptip_content {
     padding: 4px 8px 5px 8px;
     background-color: rgba(245, 245, 245, 0.88);
   }
 
-  /* line 282, ../../app/stylesheets/application.scss */
+  /* line 299, ../../app/stylesheets/application.scss */
   #tiptip_holder.tip_bottom #tiptip_arrow_inner {
     border-bottom-color: rgba(245, 245, 245, 0.88);
   }
 
-  /* line 285, ../../app/stylesheets/application.scss */
+  /* line 302, ../../app/stylesheets/application.scss */
   #tiptip_holder.tip_top #tiptip_arrow_inner {
     border-top-color: rgba(220, 220, 220, 0.92);
   }
 }
-/* line 290, ../../app/stylesheets/application.scss */
+/* line 307, ../../app/stylesheets/application.scss */
 #sidebar {
   font-family: 'Cabin Sketch', cursive;
   position: absolute;
@@ -364,22 +382,26 @@ body {
   width: 180px;
   z-index: 10000;
 }
-/* line 297, ../../app/stylesheets/application.scss */
+/* line 314, ../../app/stylesheets/application.scss */
 #sidebar ul {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
 }
-/* line 302, ../../app/stylesheets/application.scss */
+/* line 319, ../../app/stylesheets/application.scss */
 #sidebar ul li a {
   color: #26b5e8;
   text-decoration: none;
+  background-color: white;
+  padding: 0.3em;
+  display: block;
+  margin-bottom: 0.3em;
 }
-/* line 305, ../../app/stylesheets/application.scss */
+/* line 326, ../../app/stylesheets/application.scss */
 #sidebar ul li a:visited {
   color: #999;
 }
-/* line 308, ../../app/stylesheets/application.scss */
+/* line 329, ../../app/stylesheets/application.scss */
 #sidebar ul li a:hover {
   color: #54c5ed;
 }

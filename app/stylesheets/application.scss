@@ -20,6 +20,11 @@ a {
   user-select: none;
 }
 
+h1, h2, p {
+  font-weight: normal;
+  color: #566;
+}
+
 #header {
   position: absolute;
   top: 0px;
@@ -28,7 +33,7 @@ a {
   height: 4.5em;
   z-index: 2000;
   h1 {
-    color: #333;
+    color: #566;
     text-align: center;
     font-family: 'Cabin Sketch', cursive;
     font-size: 200%;
@@ -89,6 +94,7 @@ a {
 }
 
 .door {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: $blue;
   width: 24px;
   height: 24px;
@@ -119,6 +125,7 @@ body {
   overflow: hidden;
   font-family: 'Cabin Sketch', cursive;
   @include background(radial-gradient(#fff, #88b));
+  color: #566;
 }
 
 #fader {
@@ -154,7 +161,6 @@ body {
   top: 0px;
   left: 0px;
   z-index: 9500;
-  background-color: rgba(255,255,255,0.2);
   padding: 1em;
   font-size: 64px;
   color: #888;
@@ -164,6 +170,17 @@ body {
     color: black;
   }
 }
+
+#greeting {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 180px;
+  z-index: 10;
+  background-color: white;
+  padding: 0.3em;
+}
+
 .done_button {
   background-color: #ddaa11;
   color: white;
@@ -302,6 +319,10 @@ body {
       a {
         color: $blue;
         text-decoration: none;
+        background-color: white;
+        padding: 0.3em;
+        display: block;
+        margin-bottom: 0.3em;
         &:visited {
           color: #999;
         }
