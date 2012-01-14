@@ -53,7 +53,7 @@
             Your collected memories
           %p
             As you explore, the memories you view are stored here. Collect them all to get access to hidden extras!
-          #inventory_list
+          %ul#inventory_list
           %p
             %a.close{:href=>"#"} Close
       #story
@@ -93,7 +93,11 @@
   <script id="storySidebarTemplate" type="text/x-jquery-tmpl">
   <li><a href="/#maps/${map}/stories/${id}">${title}</a></li>
   </script>
-  
+
+  <script id="inventoryStoryTemplate" type="text/x-jquery-tmpl">
+  <li><a href="/#maps/${map}/stories/${id}">${title}</a></li>
+  </script>
+
   %script{:src=>"/javascripts/json2.js", :type=>"text/javascript"}   
   %script{:src=>"/javascripts/underscore.js", :type=>"text/javascript"}   
   %script{:src=>"/javascripts/underscore.strings.js", :type=>"text/javascript"}   

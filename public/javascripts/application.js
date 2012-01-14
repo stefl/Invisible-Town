@@ -133,6 +133,13 @@ $(function() {
 
     function showInventory() {
         $inventory.removeClass("hidden").show();
+        var $inventory_list = $("#inventory_list");
+        $inventory_list.empty();
+        console.log(VisitedStories.models);
+        _.each(VisitedStories.models, function(story) {
+            console.log(story.attributes);
+            $("#inventoryStoryTemplate").tmpl(story.attributes).appendTo($inventory_list);
+        });
     }
     
     function showMap(map) {
