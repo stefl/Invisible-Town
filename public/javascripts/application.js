@@ -173,9 +173,11 @@ $(function() {
     function displayGreeting() {
         var map = $map.data().map;
         $greeting.hide();
-        $greeting.text("");
-        $greeting.text(map.greetings[Math.floor ( Math.random() * map.greetings.length )]);
-        $greeting.delay(1500).fadeIn();
+        if(map.greetings.length > 0) {
+            $greeting.text("");
+            $greeting.text(map.greetings[Math.floor ( Math.random() * map.greetings.length )]);
+            $greeting.delay(1500).fadeIn();
+        }
     }
 
     function setupBackButton() {
