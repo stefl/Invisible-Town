@@ -173,7 +173,7 @@ $(function() {
     function displayGreeting() {
         var map = $map.data().map;
         $greeting.hide();
-        if(map.greetings.length > 0) {
+        if(!_(map.greetings).blank) {
             $greeting.text("");
             $greeting.text(map.greetings[Math.floor ( Math.random() * map.greetings.length )]);
             $greeting.delay(1500).fadeIn();
