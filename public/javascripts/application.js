@@ -25,7 +25,7 @@ $(function() {
         },
 
         home: function() {
-            showMap(maps[0]);
+            showMap(getStartingMap());
         },
         
         story: function(slug, id) {
@@ -91,7 +91,7 @@ $(function() {
     var $tip_holder = $("#tiptip_holder");
     var $sidebar = $("#sidebar");
     var $sidebar_stories = $("#stories_for_this_map ul");
-    var $sidebar_stories_title = $("#stories_for_this_map");
+    var $sidebar_stories_title = $("#stories_for_this_map h2");
     var currentMap;
     
     $story.hide();
@@ -101,6 +101,12 @@ $(function() {
     function getMap(slug) {
         return(_.find(maps, function(m){ 
             return m.slug ==  slug; 
+        }));
+    }
+ 
+    function getStartingMap(slug) {
+        return(_.find(maps, function(m){ 
+            return m.starts_here ==  true; 
         }));
     }
     
@@ -197,13 +203,9 @@ $(function() {
     function addStoriesToSidebar() {
         var map = $map.data().map;
         $sidebar_stories.empty();
-        if(_(map.stories).blank) {
-            $sidebar_stories_title.hide();
-        }
-        else {
-            $sidebar_stories_title.show();
-        }
+        $sidebar_stories_title.hide();
         _.each(map.stories, function(story) {
+            $sidebar_stories_title.show();
             $("#storySidebarTemplate").tmpl(story).appendTo($sidebar_stories);
         });
     }
@@ -365,7 +367,7 @@ $(function() {
         $story.slideUp(function(){ $story.empty(); });
     }
     
-    $("#background, #stories_title").click(function() {
+    $("#background").click(function() {
         window.history.back();
         return(false);
     }).bind("tap", function() {

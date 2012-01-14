@@ -15,9 +15,9 @@ class Story
   property :y, Integer
   belongs_to :map
 
-  has n, :story_maps, :child_key => :story_id
+  has n, :story_maps, :child_key => :story_id, :constraint => :destroy
   has n, :maps, "Map", :through => :story_maps
-  has n, :story_stories, :child_key => :story_id
+  has n, :story_stories, :child_key => :story_id, :constraint => :destroy
   has n, :stories, "Story", :through => :story_stories, :via => :reminded_of
   
   def simple_format(text, options={})

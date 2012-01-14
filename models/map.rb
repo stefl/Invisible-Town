@@ -7,10 +7,11 @@ class Map
   property :title, String
   property :image, String
   property :greetings, Text
+  property :starts_here, Boolean, :default => false
 
-  has n, :stories
-  has n, :doors_to, :model => "Door", :child_key => [:to_id]
-  has n, :doors_from, :model => "Door", :child_key => [:from_id]
+  has n, :stories, :constraint => :protect
+  has n, :doors_to, :model => "Door", :child_key => [:to_id], :constraint => :destroy
+  has n, :doors_from, :model => "Door", :child_key => [:from_id], :constraint => :destroy
   
   def json_summary opts = {}
     json_stories = []
@@ -26,6 +27,7 @@ class Map
     end
     {
       :id => self.id,
+      :starts_here => self.starts_here,
       :slug => self.slug,
       :title => self.title,
       :image => self.image,

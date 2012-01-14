@@ -22,6 +22,13 @@
   ~f.text_area :greetings, :class => :text_area
   %span.description A set of 'greetings' that will be displayed to the user at random on visiting this map. One per line, no blank lines.  
 
+%details
+  .group
+    =f.label :starts_here
+    =f.error_message_on :starts_here
+    =f.check_box :starts_here, :uncheck_value => 'false'
+    %span.description The whole game starts at this point. Careful...
+
 .group.navform.wat-cf
   =f.submit pat(:save), :class => :button
   =f.submit pat(:cancel), :onclick => "window.location='#{url(:maps, :index)}';return false", :class => :button
