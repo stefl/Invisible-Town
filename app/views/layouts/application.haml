@@ -36,7 +36,7 @@
         %ul
     #page.container
       %a#back &larr;
-      %a#help_link{:href=>"#"} ?
+      %a#help_link ?
       #help.hidden
         .help_container
           %h2 How this works
@@ -46,7 +46,7 @@
           %p As you gather more memories, more become available. And at particular times of day you'll find a few hidden extras around the place too.
           %p Can you collect them all? Is it even possible to map a childhood? Let's find out...
           %p
-            %a.close{:href=>"#"} Close
+            %a.close Close
       #inventory.hidden
         .inventory_container
           %h2
@@ -55,7 +55,7 @@
             As you explore, the memories you view are stored here. Collect them all to get access to hidden extras!
           %ul#inventory_list
           %p
-            %a.close{:href=>"#"} Close
+            %a.close Close
       #story
       #fader
       #map
@@ -66,7 +66,7 @@
       #clouds
       #sidebar_inventory
         %h2
-          %a#inventory_link{:href=>"#"} Collected memories
+          %a#inventory_link Collected memories
 
       = yield
   
