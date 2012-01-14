@@ -166,6 +166,51 @@ body {
   }
 }
 
+#help_link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5000;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: $blue;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  padding-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  display: block;
+  @include border-radius(12px);
+  @include box-shadow(rgba(0,0,0,0.5) 0px 0px 10px inset, rgba(255,255,255,1) 0px 0px 10px);
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    background-color: lighten($blue, 10);
+    color: $blue;
+  }
+}
+
+#help {
+  width: 100%;
+  height: 100%;
+  padding-top: 120px;
+  z-index: 200000;
+  display:block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.5);
+  .help_container {
+    margin: auto;
+    width: 60%;
+    background-color: white;
+    padding: 1.5em;
+  }
+}
+
 #back {
   display: none;
   position: absolute;

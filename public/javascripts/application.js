@@ -6,6 +6,7 @@ $(function() {
 
         routes: {
             "": "home",
+            "help": "help",
             "maps/:slug/stories/:id": "story",
             "maps/:slug": "map"
         },
@@ -18,6 +19,10 @@ $(function() {
             else {
                 apprise("Sorry, I can't find where you're trying to go...");
             }
+        },
+
+        inventory: function() {
+            
         },
 
         about: function() {
@@ -88,6 +93,7 @@ $(function() {
     var $fader = $("#fader");
     var $story = $("#story");
     var $back = $("#back");
+    var $help = $("#help");
     var $tip_holder = $("#tiptip_holder");
     var $sidebar = $("#sidebar");
     var $sidebar_stories = $("#stories_for_this_map ul");
@@ -430,4 +436,8 @@ $(function() {
     resetView();
     
     App.init();
+
+    $("#help").removeClass("hidden").hide();
+    $("#help_link").click(function(){ $help.show(); });
+    $("#help, #help a.close").click(function() { $help.hide(); });
 })

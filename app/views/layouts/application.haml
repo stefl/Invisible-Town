@@ -32,6 +32,18 @@
         %ul
     #page.container
       %a#back &larr;
+      %a#help_link{:href=>"#"} ?
+      #help.hidden
+        .help_container
+          %h2 How this works
+          %p I'm Hugh Hughes and I'm making a map of my childhood. 
+          %p As I remember things I'm putting the memories here.
+          %p Browse around and view the memories, either clicking the dots in the graphical area, or at the bottom left.
+          %p As you gather more memories, more become available. And at particular times of day you'll find a few hidden extras around the place too.
+          %p Can you collect them all? Is it even possible to map a childhood? Let's find out...
+          %p
+            %a.close{:href=>"#"} Close
+      #inventory
       #story
       #fader
       #map
