@@ -86,6 +86,7 @@ $(function() {
     var $story = $("#story");
     var $back = $("#back");
     var $tip_holder = $("#tiptip_holder");
+    var $sidebar = $("#sidebar");
     var currentMap;
     
     $story.hide();

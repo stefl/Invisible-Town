@@ -11,22 +11,16 @@
       %table.table
         %tr
           %th.first=mat(:door, :id)
-          %th=mat(:door, :x)
-          %th=mat(:door, :y)
           %th=mat(:door, :from_id)
           %th=mat(:door, :to_id)
           %th.last="&nbsp;"
         -@doors.each do |door|
           %tr
-            %td.first=door.id
-            %td=door.x
-            %td=door.y
-            %td=door.from.slug
-            %td=door.to.slug
+            %td.first= link_to door.id, url(:doors, :edit, :id => door.id)
+            %td= link_to door.from.slug, "/#maps/#{door.from.slug}"
+            %td= link_to door.to.slug, "/#maps/#{door.to.slug}"
             %td.last
               =button_to pat(:edit), url(:doors, :edit, :id => door.id), :method => :get, :class => :button_to
-              ="|"
-              =button_to pat(:delete), url(:doors, :destroy, :id => door.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
       .actions-bar.wat-cf
         .actions="&nbsp;"
 

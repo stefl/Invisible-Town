@@ -12,4 +12,4 @@
       -form_for :door, url(:doors, :update, :id => @door.id), :method => :put, :class => :form do |f|
         =partial "doors/form", :locals => { :f => f }
 
--content_for :sidebar, partial("base/sidebar")
+      = button_to "Delete this door", url(:doors, :destroy, :id => @door.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
