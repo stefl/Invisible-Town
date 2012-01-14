@@ -288,8 +288,7 @@ $(function() {
         $story.slideUp(function(){
             $story.empty();
             var $title = $("<h1 />").text(story.title);
-            var $done_button = $("<a class='done_button'>Done</a>");
-            $done_button.click(function(){ hideStory(); $fader.hide(); });
+            var $done_button = $("<a href='/#maps/" + story.map + "'>Close</a>");
             $story.append($title);
                         
             if(!_(story.soundcloud_track_id).blank()) {
