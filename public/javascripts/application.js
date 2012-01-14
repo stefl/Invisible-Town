@@ -53,17 +53,20 @@ $(function() {
     var Story = Backbone.Model.extend({
     });
 
-    window.StoriesCollection = Backbone.Collection.extend({
-
+    window.FoundStoriesCollection = Backbone.Collection.extend({
       localStorage: new Store("FoundStoriesCollection"), // Unique name within your app.
       model: Story
-      // ... everything else is normal.
-
     });
 
-    window.VisitedStories = new StoriesCollection;
+    window.ContextStoriesCollection = Backbone.Collection.extend({
+      model: Story
+    });
+
+    window.VisitedStories = new FoundStoriesCollection;
 
     VisitedStories.fetch();
+
+    window.SidebarStories = new ContextStoriesCollection;
 
     window.App = {
         init: function() {
@@ -87,6 +90,7 @@ $(function() {
     var $back = $("#back");
     var $tip_holder = $("#tiptip_holder");
     var $sidebar = $("#sidebar");
+    var $sidebar_stories = $("#stories_for_this_map ul");
     var currentMap;
     
     $story.hide();
@@ -114,90 +118,132 @@ $(function() {
     function showMap(map) {
         hideStory();
         $fader.hide();
+        $map_markers.fadeOut();
         $tip_holder.fadeOut();
         if(map == currentMap) {
+            $map_markers.fadeIn();
             return(false);
         }
         currentMap = map;
-        
-        $map_title.text(map.title);
-        console.log(map.greetings);
-        $greeting.hide();
-        $greeting.text("");
-        $greeting.text(map.greetings[Math.floor ( Math.random() * map.greetings.length )]);
-        $greeting.delay(1500).fadeIn();
         $map.data({map: map});
+
+        displayTitle();
+        displayGreeting();
+        displayMapImage();
+        handleImageLoad();
+    }
+
+    function handleImageLoad() {
+        $img.load(function() {
+            var left = ($(window).width() - $img.width())/2 + "px";
+            $img
+                .css("left", left)
+                .delay(500).fadeIn(1000, function() {
+                    console.log("Faded image in");
+                    addDoorsAndStoriesToMap();
+                    addStoriesToSidebar();
+                    setupBackButton();
+                    attachMouseOverEvents();
+                    $map_markers.show();
+                });
+        });
+    }
+
+    function displayTitle() {
+        var map = $map.data().map;
+        $map_title.text(map.title);
+    }
+
+    function displayMapImage() {
+        var map = $map.data().map;
         $map_image.find("img").removeClass("active").addClass("inactive").fadeOut(function() { $(this).remove(); });
         $img = $("<img />");
         $img
             .addClass("active")
             .attr("src", map.image)
-            .css("height", $(window).height())
+            .css("height", $(window).height() - 100)
             .css("position", "absolute")
             .css("top","0px")
             .hide();
         $map.find("#map_image").append($img);
-        $img.load(function() {
-            var left = ($(window).width() - $img.width())/2 + "px";
-            $img.css("left", left);
-            $(this).fadeIn(function() {
-                $map_markers
-                    .fadeIn();
-            });
-    
-            var tabindex = 1;
-            $map_markers.empty().hide();
-            $.each(map.doors_from, function(i, e) {
-                var $door = $("<a class='tip door' />");
-                var door_map = getMap(e.to);
-                $door
-                    .text("+")
-                    .attr("title", door_map.title)
-                    .attr("href", "/#maps/" + e.to)
-                    .data("door", e)
-                    .data("x", e.x)
-                    .data("y", e.y)
-                    .css("position", "absolute")
-                    .css("z-index", "10000")
-                    .css("left", (e.x * ($img.width() / 100.0)) + $img.offset().left - 12 + "px")
-                    .css("top", (e.y * ($img.height() / 100.0)) - 12 + "px")
-                    .attr("tabindex", tabindex)
-                    .hide()
-                    .fadeIn();
-                    
-                $map_markers.append($door);
-                tabindex = tabindex + 1;
-            });
-            
-            if(map.doors_to.length == 0) {
-                $back.fadeOut();
-            }
-            else {
-              $back.fadeIn();
-              $back.attr("href", "#maps/" + map.doors_to[0].from);
-            }
-    
-            $.each(map.stories, function(i, e) {
-                var $story = $("<a class='tip story' />");
-                $story
-                    .attr("title", e.title)
-                    .attr("href", "#maps/" + map.slug + "/stories/" + e.id)
-                    .data("story", e)
-                    .data("x", e.x)
-                    .data("y", e.y)
-                    .css("position", "absolute")
-                    .css("z-index", "10000")
-                    .css("left", (e.x * ($img.width() / 100.0)) - 12 + $img.offset().left + "px")
-                    .css("top", (e.y * ($img.height() / 100.0)) - 12 + "px")
-                    .hide()
-                    .fadeIn()
-                    .attr("tabindex", tabindex)
-                $map_markers.append($story);
-                tabindex = tabindex + 1;
-            });
-            
-            $(".tip").tipTip();
-            $(".story, .door").mouseover(function(){
+    }
+
+    function displayGreeting() {
+        var map = $map.data().map;
+        $greeting.hide();
+        $greeting.text("");
+        $greeting.text(map.greetings[Math.floor ( Math.random() * map.greetings.length )]);
+        $greeting.delay(1500).fadeIn();
+    }
+
+    function setupBackButton() {
+        var map = $map.data().map;
+        if(map.doors_to.length == 0) {
+            $back.fadeOut();
+        }
+        else {
+          $back.fadeIn();
+          $back.attr("href", "#maps/" + map.doors_to[0].from);
+        }
+    }
+
+    function addStoriesToSidebar() {
+        var map = $map.data().map;
+        $sidebar_stories.empty();
+        _.each(map.stories, function(story) {
+            $("#storySidebarTemplate").tmpl(story).appendTo($sidebar_stories);
+        });
+    }
+
+    function addDoorsAndStoriesToMap() {
+        var map = $map.data().map;
+        var tabindex = 1;
+        $map_markers.empty().hide();
+        $.each(map.doors_from, function(i, e) {
+            var $door = $("<a class='tip door' />");
+            var door_map = getMap(e.to);
+            $door
+                .text("+")
+                .attr("title", door_map.title)
+                .attr("href", "/#maps/" + e.to)
+                .data("door", e)
+                .data("x", e.x)
+                .data("y", e.y)
+                .css("position", "absolute")
+                .css("z-index", "10000")
+                .css("left", (e.x * ($img.width() / 100.0)) + $img.offset().left - 12 + "px")
+                .css("top", 100 + (e.y * ($img.height() / 100.0)) - 12 + "px")
+                .attr("tabindex", tabindex)
+                .hide()
+                .fadeIn();
+                
+            $map_markers.append($door);
+            tabindex = tabindex + 1;
+        });
+        $.each(map.stories, function(i, e) {
+            var $story = $("<a class='tip story' />");
+            $story
+                .attr("title", e.title)
+                .attr("href", "#maps/" + map.slug + "/stories/" + e.id)
+                .data("story", e)
+                .data("x", e.x)
+                .data("y", e.y)
+                .css("position", "absolute")
+                .css("z-index", "10000")
+                .css("left", (e.x * ($img.width() / 100.0)) - 12 + $img.offset().left + "px")
+                .css("top", 100 + (e.y * ($img.height() / 100.0)) - 12 + "px")
+                .hide()
+                .fadeIn()
+                .attr("tabindex", tabindex)
+            $map_markers.append($story);
+            tabindex = tabindex + 1;
+        });
+    }
+
+    function attachMouseOverEvents() {
+        $(".tip").tipTip();
+        $(".story, .door")
+            .mouseover(function(){
                 $(this).stop().animate({
                     marginTop: '-10px',
                     marginLeft: '-10px',
@@ -206,9 +252,8 @@ $(function() {
                     fontSize: '32px'
             
                 })
-            });
-
-            $(".story, .door").mouseout(function(){
+            })
+            .mouseout(function(){
                 $(this).stop().animate({
                     marginTop: '0px',
                     marginLeft: '0px',
@@ -217,7 +262,6 @@ $(function() {
                     fontSize: '16px'
                 })
             });
-        });
     }
     
     function showStory(story) {
@@ -284,7 +328,6 @@ $(function() {
         }
         $(".story").removeClass("viewing");
         $viewing_story.addClass("viewing");
-        console.log($viewing_story.attr("href"));
         document.location.href = $viewing_story.attr("href");
     }
     
@@ -298,12 +341,10 @@ $(function() {
         }
         $(".story").removeClass("viewing");
         $viewing_story.addClass("viewing");
-        console.log($viewing_story.attr("href"));
         document.location.href = $viewing_story.attr("href");    
     }
     
     function hideStory() {
-        console.log("hideStory");
         $story.slideUp(function(){ $story.empty(); });
     }
     
@@ -317,13 +358,13 @@ $(function() {
         if(map) {
             resetView();
             var $img = $map_image.find("img.active");
-            $img.css("height", $(window).height());
+            $img.css("height", $(window).height() - 100);
             var left = ($(window).width() - $img.width())/2 + "px";
             $img.css({left: left });
             $.each($map_markers.find("a"), function(i, e) {
                 $e = $(e);
                 $e.css("left", ($e.data().x * ($img.width() / 100.0)) + $img.offset().left - 12 + "px")
-                    .css("top", ($e.data().y * ($img.height() / 100.0)) - 12 + "px");
+                    .css("top", 100 + ($e.data().y * ($img.height() / 100.0)) - 12 + "px");
             });
         }
     });
@@ -331,7 +372,6 @@ $(function() {
     $(".tip").tipTip();
     
     $(window).bind("keydown", function(e) {
-       
         var key = e.keyCode;
         var esc = 27;
         var left_arrow = 37;
@@ -344,11 +384,9 @@ $(function() {
            document.location.href = "#maps/" + currentMap.slug;
         }
         else if(key == left_arrow) {
-           // Previous story
            prevStory();
         }
         else if(key == right_arrow) {
-           // Next story
            nextStory();
         }
         else if(key == up_arrow) {
