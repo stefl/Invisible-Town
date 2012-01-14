@@ -112,6 +112,7 @@ h1, h2, p {
   cursor: pointer;
   &:hover {
     background-color: lighten($blue, 10);
+    color: $blue;
   }
 }
 
