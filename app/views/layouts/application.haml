@@ -47,7 +47,15 @@
           %p Can you collect them all? Is it even possible to map a childhood? Let's find out...
           %p
             %a.close{:href=>"#"} Close
-      #inventory
+      #inventory.hidden
+        .inventory_container
+          %h2
+            Your collected memories
+          %p
+            As you explore, the memories you view are stored here. Collect them all to get access to hidden extras!
+          #inventory_list
+          %p
+            %a.close{:href=>"#"} Close
       #story
       #fader
       #map
@@ -56,6 +64,10 @@
           %img.hidden
         #background
       #clouds
+      #sidebar_inventory
+        %h2
+          %a#inventory_link{:href=>"#"} Collected memories
+
       = yield
   
   <script id="soundcloudTemplate" type="text/x-jquery-tmpl">

@@ -528,3 +528,47 @@ body {
 #sidebar ul li a:hover {
   color: #54c5ed;
 }
+
+/* line 440, ../../app/stylesheets/application.scss */
+#sidebar_inventory {
+  background-image: url(/images/memory-box.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  display: block;
+  width: 190px;
+  height: 350px;
+  position: absolute;
+  z-index: 40000;
+  bottom: 0px;
+  right: 0px;
+}
+
+/* line 453, ../../app/stylesheets/application.scss */
+#inventory {
+  width: 100%;
+  height: 100%;
+  padding-top: 120px;
+  z-index: 200000;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 463, ../../app/stylesheets/application.scss */
+#inventory .inventory_container {
+  margin: auto;
+  width: 60%;
+  background-color: white;
+  padding: 1.5em;
+}
+/* line 468, ../../app/stylesheets/application.scss */
+#inventory .inventory_container #inventory_list {
+  height: 320px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+/* line 474, ../../app/stylesheets/application.scss */
+#inventory.hidden {
+  display: none;
+}

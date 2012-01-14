@@ -100,6 +100,7 @@ $(function() {
     var $sidebar = $("#sidebar");
     var $sidebar_stories = $("#stories_for_this_map ul");
     var $sidebar_stories_title = $("#stories_for_this_map h2");
+    var $inventory = $("#inventory");
     var currentMap;
     
     $story.hide();
@@ -128,6 +129,10 @@ $(function() {
         $map.height($(window).height());
         $map.width($(window).width());
         $fader.css("width", $(window).width()).css("height", $(window).height());
+    }
+
+    function showInventory() {
+        $inventory.removeClass("hidden").show();
     }
     
     function showMap(map) {
@@ -444,7 +449,10 @@ $(function() {
     
     App.init();
 
-    $("#help").hide();
+    $("#help").hide().removeClass("hidden");
     $("#help_link").click(function(){ $help.removeClass("hidden").show(); });
     $("#help, #help a.close").click(function() { $help.hide(); });
+    $("#inventory").hide().removeClass("hidden");
+    $("#inventory_link").click(function() { showInventory(); })
+    $("#inventory, #inventory a.close").click(function() { $inventory.hide(); });
 })
