@@ -1,9 +1,9 @@
-/* line 7, ../../app/stylesheets/application.scss */
+/* line 8, ../../app/stylesheets/application.scss */
 input:hover, a:hover {
   outline: none;
 }
 
-/* line 10, ../../app/stylesheets/application.scss */
+/* line 11, ../../app/stylesheets/application.scss */
 a {
   color: #26b5e8;
   text-decoration: none;
@@ -14,31 +14,31 @@ a {
   -o-user-select: none;
   user-select: none;
 }
-/* line 13, ../../app/stylesheets/application.scss */
+/* line 14, ../../app/stylesheets/application.scss */
 a:hover {
   color: #54c5ed;
 }
 
-/* line 24, ../../app/stylesheets/application.scss */
+/* line 25, ../../app/stylesheets/application.scss */
 h1, h2, p {
   font-weight: 100;
   color: #776666;
 }
 
-/* line 29, ../../app/stylesheets/application.scss */
+/* line 30, ../../app/stylesheets/application.scss */
 #hugh {
   position: absolute;
   z-index: 1;
   top: 0px;
   right: 0px;
 }
-/* line 34, ../../app/stylesheets/application.scss */
+/* line 35, ../../app/stylesheets/application.scss */
 #hugh img {
   width: 300px;
   height: 300px;
 }
 
-/* line 40, ../../app/stylesheets/application.scss */
+/* line 41, ../../app/stylesheets/application.scss */
 #header {
   position: absolute;
   top: 0px;
@@ -47,7 +47,7 @@ h1, h2, p {
   height: 4.5em;
   z-index: 2000;
 }
-/* line 47, ../../app/stylesheets/application.scss */
+/* line 48, ../../app/stylesheets/application.scss */
 #header h1 {
   color: #26b5e8;
   text-align: center;
@@ -56,29 +56,29 @@ h1, h2, p {
   font-weight: normal;
   text-shadow: white 0px 1px 0px;
 }
-/* line 54, ../../app/stylesheets/application.scss */
+/* line 55, ../../app/stylesheets/application.scss */
 #header h1 a {
   color: #333;
   text-decoration: none;
 }
-/* line 57, ../../app/stylesheets/application.scss */
+/* line 58, ../../app/stylesheets/application.scss */
 #header h1 a:hover {
   color: #464;
 }
 
-/* line 64, ../../app/stylesheets/application.scss */
+/* line 65, ../../app/stylesheets/application.scss */
 #map {
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 40px inset;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 40px inset;
-  -o-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 40px inset;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 40px inset;
+  -moz-box-shadow: #ffc500 0px 0px 40px inset;
+  -webkit-box-shadow: #ffc500 0px 0px 40px inset;
+  -o-box-shadow: #ffc500 0px 0px 40px inset;
+  box-shadow: #ffc500 0px 0px 40px inset;
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 72, ../../app/stylesheets/application.scss */
+/* line 73, ../../app/stylesheets/application.scss */
 #map #background {
   width: 100%;
   height: 100%;
@@ -86,11 +86,11 @@ h1, h2, p {
   top: 0;
   left: 0;
 }
-/* line 73, ../../app/stylesheets/application.scss */
+/* line 74, ../../app/stylesheets/application.scss */
 #map #background:hover {
   cursor: pointer;
 }
-/* line 82, ../../app/stylesheets/application.scss */
+/* line 83, ../../app/stylesheets/application.scss */
 #map #map_markers {
   position: absolute;
   height: 100%;
@@ -101,11 +101,11 @@ h1, h2, p {
   margin: auto;
   display: block;
 }
-/* line 91, ../../app/stylesheets/application.scss */
+/* line 92, ../../app/stylesheets/application.scss */
 #map #map_markers a {
   cursor: pointer;
 }
-/* line 95, ../../app/stylesheets/application.scss */
+/* line 96, ../../app/stylesheets/application.scss */
 #map #map_image {
   z-index: 5;
   position: absolute;
@@ -114,12 +114,12 @@ h1, h2, p {
   margin: auto;
   display: block;
 }
-/* line 102, ../../app/stylesheets/application.scss */
+/* line 103, ../../app/stylesheets/application.scss */
 #map #map_image img {
   border: 4px solid white;
 }
 
-/* line 108, ../../app/stylesheets/application.scss */
+/* line 109, ../../app/stylesheets/application.scss */
 .door {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #26b5e8;
@@ -146,13 +146,13 @@ h1, h2, p {
   text-decoration: none;
   cursor: pointer;
 }
-/* line 125, ../../app/stylesheets/application.scss */
+/* line 126, ../../app/stylesheets/application.scss */
 .door:hover {
   background-color: #54c5ed;
   color: #26b5e8;
 }
 
-/* line 131, ../../app/stylesheets/application.scss */
+/* line 132, ../../app/stylesheets/application.scss */
 .story {
   background-color: #efd500;
   width: 24px;
@@ -169,12 +169,12 @@ h1, h2, p {
   -o-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px inset, white 0px 0px 10px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px inset, white 0px 0px 10px;
 }
-/* line 138, ../../app/stylesheets/application.scss */
+/* line 139, ../../app/stylesheets/application.scss */
 .story:hover {
   background-color: #ffe723;
 }
 
-/* line 143, ../../app/stylesheets/application.scss */
+/* line 144, ../../app/stylesheets/application.scss */
 body {
   overflow: hidden;
   font-family: 'Cabin Sketch', cursive;
@@ -182,12 +182,12 @@ body {
   color: #776666;
 }
 
-/* line 151, ../../app/stylesheets/application.scss */
+/* line 152, ../../app/stylesheets/application.scss */
 .hidden {
   display: none !important;
 }
 
-/* line 155, ../../app/stylesheets/application.scss */
+/* line 156, ../../app/stylesheets/application.scss */
 #fader {
   background-color: rgba(255, 255, 255, 0.5);
   z-index: 4000;
@@ -196,7 +196,7 @@ body {
   left: 0;
 }
 
-/* line 163, ../../app/stylesheets/application.scss */
+/* line 164, ../../app/stylesheets/application.scss */
 #story {
   display: none;
   position: absolute;
@@ -212,7 +212,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 6px;
   padding: 1.5em;
 }
-/* line 175, ../../app/stylesheets/application.scss */
+/* line 176, ../../app/stylesheets/application.scss */
 #story h1 {
   font-family: 'Cabin Sketch', cursive;
   font-weight: 100;
@@ -220,7 +220,15 @@ body {
   margin-top: 0px;
 }
 
-/* line 183, ../../app/stylesheets/application.scss */
+/* line 184, ../../app/stylesheets/application.scss */
+#clouds {
+  background-image: url(/images/clouds-trees.png);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 900px;
+}
+
+/* line 191, ../../app/stylesheets/application.scss */
 #help_link {
   position: absolute;
   top: 10px;
@@ -251,13 +259,13 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-/* line 204, ../../app/stylesheets/application.scss */
+/* line 212, ../../app/stylesheets/application.scss */
 #help_link:hover {
   background-color: #54c5ed;
   color: #26b5e8;
 }
 
-/* line 210, ../../app/stylesheets/application.scss */
+/* line 218, ../../app/stylesheets/application.scss */
 #help {
   width: 100%;
   height: 100%;
@@ -269,19 +277,19 @@ body {
   left: 0px;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 220, ../../app/stylesheets/application.scss */
+/* line 228, ../../app/stylesheets/application.scss */
 #help .help_container {
   margin: auto;
   width: 60%;
   background-color: white;
   padding: 1.5em;
 }
-/* line 226, ../../app/stylesheets/application.scss */
+/* line 234, ../../app/stylesheets/application.scss */
 #help.hidden {
   display: none;
 }
 
-/* line 231, ../../app/stylesheets/application.scss */
+/* line 239, ../../app/stylesheets/application.scss */
 #back {
   display: none;
   position: absolute;
@@ -295,12 +303,12 @@ body {
   text-decoration: none;
   text-shadow: white 2px 2px 2px 2px;
 }
-/* line 243, ../../app/stylesheets/application.scss */
+/* line 251, ../../app/stylesheets/application.scss */
 #back:hover {
   color: black;
 }
 
-/* line 248, ../../app/stylesheets/application.scss */
+/* line 256, ../../app/stylesheets/application.scss */
 #greeting {
   position: absolute;
   top: 80px;
@@ -308,7 +316,7 @@ body {
   width: 180px;
   z-index: 10;
 }
-/* line 254, ../../app/stylesheets/application.scss */
+/* line 262, ../../app/stylesheets/application.scss */
 #greeting #speech {
   width: 1px;
   height: 16px;
@@ -317,7 +325,7 @@ body {
   border-bottom: 16px solid #26b5e8;
   margin-left: 60px;
 }
-/* line 262, ../../app/stylesheets/application.scss */
+/* line 270, ../../app/stylesheets/application.scss */
 #greeting #greets {
   background-color: #26b5e8;
   color: white;
@@ -331,7 +339,7 @@ body {
   font-size: 18px;
 }
 
-/* line 271, ../../app/stylesheets/application.scss */
+/* line 279, ../../app/stylesheets/application.scss */
 .done_button {
   background-color: #ddaa11;
   color: white;
@@ -341,7 +349,7 @@ body {
 }
 
 /* TipTip CSS - Version 1.2 */
-/* line 281, ../../app/stylesheets/application.scss */
+/* line 289, ../../app/stylesheets/application.scss */
 #tiptip_holder {
   font-family: 'Cabin Sketch', cursive;
   display: none;
@@ -351,27 +359,27 @@ body {
   z-index: 99999;
 }
 
-/* line 290, ../../app/stylesheets/application.scss */
+/* line 298, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top {
   padding-bottom: 5px;
 }
 
-/* line 294, ../../app/stylesheets/application.scss */
+/* line 302, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom {
   padding-top: 5px;
 }
 
-/* line 298, ../../app/stylesheets/application.scss */
+/* line 306, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right {
   padding-left: 5px;
 }
 
-/* line 302, ../../app/stylesheets/application.scss */
+/* line 310, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left {
   padding-right: 5px;
 }
 
-/* line 306, ../../app/stylesheets/application.scss */
+/* line 314, ../../app/stylesheets/application.scss */
 #tiptip_content {
   font-size: 125%;
   color: #000;
@@ -389,7 +397,7 @@ body {
   -moz-box-shadow: 0 0 3px #555;
 }
 
-/* line 323, ../../app/stylesheets/application.scss */
+/* line 331, ../../app/stylesheets/application.scss */
 #tiptip_arrow, #tiptip_arrow_inner {
   position: absolute;
   border-color: transparent;
@@ -399,31 +407,31 @@ body {
   width: 0;
 }
 
-/* line 332, ../../app/stylesheets/application.scss */
+/* line 340, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top #tiptip_arrow {
   border-top-color: #222;
   border-top-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 337, ../../app/stylesheets/application.scss */
+/* line 345, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom #tiptip_arrow {
   border-bottom-color: #222;
   border-bottom-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 342, ../../app/stylesheets/application.scss */
+/* line 350, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right #tiptip_arrow {
   border-right-color: #222;
   border-right-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 347, ../../app/stylesheets/application.scss */
+/* line 355, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left #tiptip_arrow {
   border-left-color: #222;
   border-left-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 352, ../../app/stylesheets/application.scss */
+/* line 360, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top #tiptip_arrow_inner {
   margin-top: -7px;
   margin-left: -6px;
@@ -431,7 +439,7 @@ body {
   border-top-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 359, ../../app/stylesheets/application.scss */
+/* line 367, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom #tiptip_arrow_inner {
   margin-top: -5px;
   margin-left: -6px;
@@ -439,7 +447,7 @@ body {
   border-bottom-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 366, ../../app/stylesheets/application.scss */
+/* line 374, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right #tiptip_arrow_inner {
   margin-top: -6px;
   margin-left: -5px;
@@ -447,7 +455,7 @@ body {
   border-right-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 373, ../../app/stylesheets/application.scss */
+/* line 381, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left #tiptip_arrow_inner {
   margin-top: -6px;
   margin-left: -7px;
@@ -457,23 +465,23 @@ body {
 
 /* Webkit Hacks  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-  /* line 382, ../../app/stylesheets/application.scss */
+  /* line 390, ../../app/stylesheets/application.scss */
   #tiptip_content {
     padding: 4px 8px 5px 8px;
     background-color: rgba(245, 245, 245, 0.88);
   }
 
-  /* line 386, ../../app/stylesheets/application.scss */
+  /* line 394, ../../app/stylesheets/application.scss */
   #tiptip_holder.tip_bottom #tiptip_arrow_inner {
     border-bottom-color: rgba(245, 245, 245, 0.88);
   }
 
-  /* line 389, ../../app/stylesheets/application.scss */
+  /* line 397, ../../app/stylesheets/application.scss */
   #tiptip_holder.tip_top #tiptip_arrow_inner {
     border-top-color: rgba(220, 220, 220, 0.92);
   }
 }
-/* line 394, ../../app/stylesheets/application.scss */
+/* line 402, ../../app/stylesheets/application.scss */
 #sidebar {
   font-family: 'Cabin Sketch', cursive;
   position: absolute;
@@ -488,18 +496,18 @@ body {
   -o-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
 }
-/* line 404, ../../app/stylesheets/application.scss */
+/* line 412, ../../app/stylesheets/application.scss */
 #sidebar h2 {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-/* line 408, ../../app/stylesheets/application.scss */
+/* line 416, ../../app/stylesheets/application.scss */
 #sidebar ul {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
 }
-/* line 413, ../../app/stylesheets/application.scss */
+/* line 421, ../../app/stylesheets/application.scss */
 #sidebar ul li a {
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px;
@@ -512,11 +520,11 @@ body {
   display: block;
   margin-bottom: 0.3em;
 }
-/* line 421, ../../app/stylesheets/application.scss */
+/* line 429, ../../app/stylesheets/application.scss */
 #sidebar ul li a:visited {
   color: #999;
 }
-/* line 424, ../../app/stylesheets/application.scss */
+/* line 432, ../../app/stylesheets/application.scss */
 #sidebar ul li a:hover {
   color: #54c5ed;
 }
