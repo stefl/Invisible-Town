@@ -13,6 +13,7 @@ a {
   text-decoration: none;
   &:hover {
     color: lighten($blue, 10);
+    cursor: pointer;
   }
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -469,6 +470,11 @@ body {
       height: 320px;
       overflow-x: hidden;
       overflow-y: scroll;
+      background-color: $yellow;
+      li {
+        width: 33%;
+
+      }
     }
   }
   &.hidden {
