@@ -120,7 +120,7 @@ $(function() {
         hideStory();
         $fader.hide();
         $map_markers.fadeOut();
-        $tip_holder.fadeOut();
+        $tip_holder.hide();
         if(map == currentMap) {
             $map_markers.fadeIn();
             return(false);
