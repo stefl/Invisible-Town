@@ -1,5 +1,7 @@
 window.maps = map_data.maps;
 
+google.load("jqueryui", "1.7.2");
+
 $(function() {
     
     window.InvisibleTownRouter = Backbone.Router.extend({
@@ -140,7 +142,7 @@ $(function() {
         currentMap = map;
         $map.data({map: map});
 
-        displayTitle();
+        $map_title.text("");
         displayGreeting();
         displayMapImage();
     }
@@ -151,12 +153,12 @@ $(function() {
             $img
                 .removeClass("hidden")
                 .css("left", left)
-                .delay(500).fadeIn(1000, function() {
-                    console.log("Faded image in");
+                .delay(500).show("clip", {}, 1000, function() {
                     addDoorsAndStoriesToMap();
                     addStoriesToSidebar();
                     setupBackButton();
                     attachMouseOverEvents();
+                    displayTitle();
                     $map_markers.show();
                 });
         });
@@ -164,13 +166,13 @@ $(function() {
 
     function displayTitle() {
         var map = $map.data().map;
-        $map_title.text(map.title);
+        $map_title.hide().text(map.title).fadeIn();
     }
 
     function displayMapImage() {
         var map = $map.data().map;
-        $map_image.find("img").show().removeClass("active").addClass("inactive").fadeOut(1000, function() { 
-            console.log("do fadeout");
+        $("#tiptip_holder").hide();
+        $map_image.find("img").show().removeClass("active").addClass("inactive").hide("clip", {}, 1000, function() { 
             $(this).remove();
             var $img = $("<img />");
             $img
@@ -294,10 +296,10 @@ $(function() {
         if(!VisitedStories.get(story.id)) {
             VisitedStories.create(story);
         }
-        $("#tiptip_holder").fadeOut();
+        $("#tiptip_holder").hide();
         $fader.show();
         
-        $story.slideUp(function(){
+        $story.css({left: ( $(window).width() - 400 ) / 2 }).slideUp(function(){
             $story.empty();
             var $title = $("<h1 />").text(story.title);
             var $done_button = $("<a href='/#maps/" + story.map + "'>Close</a>");
@@ -308,7 +310,7 @@ $(function() {
             }
             
             if(!_(story.aframe_clip_id).blank()) {
-                $("#aframeTemplate").tmpl(story).appendTo($story);
+                $("#aframeTemplate").tmpl({height: (345 * (3/4.0)) + 18, story: story }).appendTo($story);
             }
             
             if(!_(story.image_url).blank()) {
@@ -437,7 +439,7 @@ $(function() {
     
     App.init();
 
-    $("#help").removeClass("hidden").hide();
-    $("#help_link").click(function(){ $help.show(); });
+    $("#help").hide();
+    $("#help_link").click(function(){ $help.removeClass("hidden").show(); });
     $("#help, #help a.close").click(function() { $help.hide(); });
 })
