@@ -91,6 +91,7 @@ $(function() {
     var $tip_holder = $("#tiptip_holder");
     var $sidebar = $("#sidebar");
     var $sidebar_stories = $("#stories_for_this_map ul");
+    var $sidebar_stories_title = $("#stories_for_this_map");
     var currentMap;
     
     $story.hide();
@@ -137,6 +138,7 @@ $(function() {
         $img.load(function() {
             var left = ($(window).width() - $img.width())/2 + "px";
             $img
+                .removeClass("hidden")
                 .css("left", left)
                 .delay(500).fadeIn(1000, function() {
                     console.log("Faded image in");
@@ -190,6 +192,12 @@ $(function() {
     function addStoriesToSidebar() {
         var map = $map.data().map;
         $sidebar_stories.empty();
+        if(_(map.stories).blank) {
+            $sidebar_stories_title.hide();
+        }
+        else {
+            $sidebar_stories_title.show();
+        }
         _.each(map.stories, function(story) {
             $("#storySidebarTemplate").tmpl(story).appendTo($sidebar_stories);
         });
