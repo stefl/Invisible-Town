@@ -252,8 +252,8 @@ $(function() {
 
     function attachMouseOverEvents() {
         $(".tip").tipTip();
-        $(".door, .story").bind("tap", function() {
-            document.location.href = $(this).attr("href");
+        $(".door, .story").bind("touchend", function() {
+            window.location = $(this).attr("href");
         });
         /*
         $(".story, .door")
