@@ -190,10 +190,14 @@ $(function() {
     function displayGreeting() {
         var map = $map.data().map;
         $greeting.hide();
-        if(!_(map.greetings).blank) {
-            $greeting.text("");
-            $greeting.text(map.greetings[Math.floor ( Math.random() * map.greetings.length )]);
+        if(!_(map.greetings).blank()) {
+            $greeting.find("#greets").text("");
+            $greeting.find("#greets").text(map.greetings[Math.floor ( Math.random() * map.greetings.length )]);
             $greeting.delay(1500).fadeIn();
+        }
+        else {
+            console.log(map.greetings);
+            console.log("Blank greetings");
         }
     }
 
@@ -210,10 +214,11 @@ $(function() {
 
     function addStoriesToSidebar() {
         var map = $map.data().map;
-        $sidebar_stories.empty();
+        $sidebar_stories.empty().hide();
         $sidebar_stories_title.hide();
         _.each(map.stories, function(story) {
             $sidebar_stories_title.show();
+            $sidebar_stories.show();
             $("#storySidebarTemplate").tmpl(story).appendTo($sidebar_stories);
         });
     }
