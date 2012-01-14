@@ -110,6 +110,9 @@ h1, h2, p {
   @include box-shadow(rgba(0,0,0,0.5) 0px 0px 10px inset, rgba(255,255,255,1) 0px 0px 10px);
   text-decoration: none;
   cursor: pointer;
+  &:hover {
+    background-color: lighten($blue, 10);
+  }
 }
 
 .story {
@@ -119,6 +122,9 @@ h1, h2, p {
   display: block;
   @include border-radius(12px);
   @include box-shadow(rgba(0,0,0,0.5) 0px 0px 10px inset, rgba(255,255,255,1) 0px 0px 10px);
+  &:hover {
+    background-color: lighten($yellow, 10);
+  }
 }
 
 body {

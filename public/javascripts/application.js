@@ -252,6 +252,7 @@ $(function() {
 
     function attachMouseOverEvents() {
         $(".tip").tipTip();
+        /*
         $(".story, .door")
             .mouseover(function(){
                 $(this).stop().animate({
@@ -271,7 +272,7 @@ $(function() {
                     height: '24px',
                     fontSize: '16px'
                 })
-            });
+            }); */
     }
     
     function showStory(story) {
