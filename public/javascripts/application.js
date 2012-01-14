@@ -131,10 +131,9 @@ $(function() {
         displayTitle();
         displayGreeting();
         displayMapImage();
-        handleImageLoad();
     }
 
-    function handleImageLoad() {
+    function handleImageLoad($img) {
         $img.load(function() {
             var left = ($(window).width() - $img.width())/2 + "px";
             $img
@@ -158,16 +157,20 @@ $(function() {
 
     function displayMapImage() {
         var map = $map.data().map;
-        $map_image.find("img").removeClass("active").addClass("inactive").fadeOut(function() { $(this).remove(); });
-        $img = $("<img />");
-        $img
-            .addClass("active")
-            .attr("src", map.image)
-            .css("height", $(window).height() - 100)
-            .css("position", "absolute")
-            .css("top","0px")
-            .hide();
-        $map.find("#map_image").append($img);
+        $map_image.find("img").show().removeClass("active").addClass("inactive").fadeOut(1000, function() { 
+            console.log("do fadeout");
+            $(this).remove();
+            var $img = $("<img />");
+            $img
+                .addClass("active")
+                .attr("src", map.image)
+                .css("height", $(window).height() - 100)
+                .css("position", "absolute")
+                .css("top","0px")
+                .hide();
+            $map_image.append($img);
+            handleImageLoad($img);
+        });
     }
 
     function displayGreeting() {
@@ -207,6 +210,7 @@ $(function() {
 
     function addDoorsAndStoriesToMap() {
         var map = $map.data().map;
+        var $img = $map_image.find("img.active");
         var tabindex = 1;
         $map_markers.empty().hide();
         $.each(map.doors_from, function(i, e) {
