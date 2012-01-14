@@ -124,7 +124,7 @@ h1, h2, p {
 body {
   overflow: hidden;
   font-family: 'Cabin Sketch', cursive;
-  @include background(radial-gradient(#fff, #88b, 600));
+  @include background(radial-gradient(#fff, #88b 600px));
   color: #566;
 }
 
