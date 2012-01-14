@@ -359,7 +359,10 @@ $(function() {
     $("#background, #stories_title").click(function() {
         window.history.back();
         return(false);
-    });
+    }).bind("tap", function() {
+        window.history.back();
+        return(false);
+    })
     
     $(window).bind("resize", function() {
         var map = $map.data().map;
