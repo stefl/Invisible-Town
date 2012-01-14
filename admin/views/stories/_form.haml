@@ -61,7 +61,22 @@
 
   %span.description Specify when a story can be viewed on the website
 
+.group
+  =f.label "That reminds me of the time when..."
+  = @story.stories.collect(&:id)
+  %select{:name=>"stories[]", :multiple=>"multiple"}
+    - Story.all.each do |story|
+      = @story.stories.collect(&:id).include?(story.id)
+      - unless story == @story
+        %option{:value => story.id, :selected => (@story.stories.collect(&:id).include?(story.id)) }= story.title
 
+.group
+  =f.label "That reminds me of the place where..."
+  %select{:name=>"maps[]", :multiple=>"multiple"}
+    - Map.all.each do |map|
+      - unless map == @story.map
+        %option{:value => map.id, :selected => (@story.maps.collect(&:id).include?(map.id)) }= map.title
+    
 .group
   =f.label :map_id
   =f.error_message_on :map_id

@@ -5,7 +5,7 @@ class InvisibleTown < Padrino::Application
   #register CompassInitializer
 
 
-  enable :sessions
+  #enable :sessions
 
   ##
   # Caching support

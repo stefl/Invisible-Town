@@ -50,6 +50,21 @@ $(function() {
 
     });
 
+    var Story = Backbone.Model.extend({
+    });
+
+    window.StoriesCollection = Backbone.Collection.extend({
+
+      localStorage: new Store("FoundStoriesCollection"), // Unique name within your app.
+      model: Story
+      // ... everything else is normal.
+
+    });
+
+    window.VisitedStories = new StoriesCollection;
+
+    VisitedStories.fetch();
+
     window.App = {
         init: function() {
             this.router = new InvisibleTownRouter();
@@ -205,7 +220,9 @@ $(function() {
     }
     
     function showStory(story) {
-        console.log("showStory");
+        if(!VisitedStories.get(story.id)) {
+            VisitedStories.create(story);
+        }
         $("#tiptip_holder").fadeOut();
         $fader.show();
         
@@ -231,9 +248,27 @@ $(function() {
             if(!_(story.description).blank()) {
                 $(story.description_html).appendTo($story);
             }
+
+            if(!_(story.related_stories).blank()) {
+                _.each(story.related_stories, function(related) {
+                    var story_map = getMap(related.map_slug);
+                    var related_story = getStory(story_map, related.id);
+                    var data = { map: story_map, story: related_story};
+                    if(data.map && data.story) {
+                      $("#relatedStoryTemplate").tmpl(data).appendTo($story);
+                    }
+                });
+            }
+
+            if(!_(story.related_maps).blank()) {
+                _.each(story.related_maps, function(related) {
+                    var related_map = getMap(related.slug);
+                    $("#relatedMapTemplate").tmpl(related_map).appendTo($story);
+                });
+            }
                 
             $story
-                //.append($done_button)
+                .append($done_button)
                 .slideDown();
         });
     }

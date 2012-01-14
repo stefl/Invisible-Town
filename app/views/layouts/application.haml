@@ -50,9 +50,19 @@
   <img src="${image_url}" style="width:100%" />
   </script>
           
+  <script id="relatedStoryTemplate" type="text/x-jquery-tmpl">
+  <p>This reminds me of <a href="/#maps/${map.slug}/stories/${story.id}">${story.title}</a></p>
+  </script>
+
+  <script id="relatedMapTemplate" type="text/x-jquery-tmpl">
+  <p>Go to <a href="/#maps/${slug}">${title}</a></p>
+  </script>
+  %script{:src=>"/javascripts/json2.js", :type=>"text/javascript"}   
   %script{:src=>"/javascripts/underscore.js", :type=>"text/javascript"}   
-  %script{:src=>"/javascripts/underscore.strings.js", :type=>"text/javascript"}         
-  %script{:src=>"/javascripts/backbone.js", :type=>"text/javascript"}      
+  %script{:src=>"/javascripts/underscore.strings.js", :type=>"text/javascript"}   
+  %script{:src=>"/javascripts/amplify.store.js", :type=>"text/javascript"}       
+  %script{:src=>"/javascripts/backbone.js", :type=>"text/javascript"}  
+  %script{:src=>"/javascripts/backbone.amplify.js", :type=>"text/javascript"}     
   %script{:src=>"/javascripts/jquery.js", :type=>"text/javascript"}
   %script{:src=>"/javascripts/jquery.tmpl.js", :type=>"text/javascript"}
   %script{:src=>"/javascripts/jquery-ujs.js", :type=>"text/javascript"}

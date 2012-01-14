@@ -14,6 +14,11 @@ class Story
   property :x, Integer
   property :y, Integer
   belongs_to :map
+
+  has n, :story_maps, :child_key => :story_id
+  has n, :maps, "Map", :through => :story_maps
+  has n, :story_stories, :child_key => :story_id
+  has n, :stories, "Story", :through => :story_stories, :via => :reminded_of
   
   def simple_format(text, options={})
     t = options.delete(:tag) || :p
@@ -38,7 +43,9 @@ class Story
       :description_html => simple_format(self.description),
       :x => self.x,
       :y => self.y,
-      :map => self.map.slug
+      :map => self.map.slug,
+      :related_maps => self.maps.collect{|m| {:slug => m.slug, :id => m.id}},
+      :related_stories => self.stories.collect{|s| {:map_slug => s.map.slug, :id => s.id}}
     }
   end
 end
