@@ -457,9 +457,9 @@ $(function() {
     App.init();
 
     $("#help").hide().removeClass("hidden");
-    $("#help_link").click(function(){ $help.removeClass("hidden").show(); });
-    $("#help, #help a.close").click(function() { $help.hide(); });
+    $("#help_link").click(function(e){ $help.removeClass("hidden").show(); e.preventDefault(); e.stopPropagation(); });
+    $("#help, #help a.close").click(function() { $help.hide(); e.preventDefault(); e.stopPropagation(); });
     $("#inventory").hide().removeClass("hidden");
-    $("#inventory_link").click(function() { showInventory(); })
-    $("#inventory, #inventory a.close").click(function() { $inventory.hide(); });
+    $("#inventory_link").click(function() { showInventory(); e.preventDefault(); e.stopPropagation(); })
+    $("#inventory, #inventory a.close").click(function() { $inventory.hide(); e.preventDefault(); e.stopPropagation(); });
 })
