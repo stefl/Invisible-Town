@@ -1,412 +1,88 @@
-/* line 6, ../../app/stylesheets/application.scss */
-input:hover, a:hover {
-  outline: none;
-}
+/*
+Syntax error: Not a valid color stop: Sass::Script::Number: 600
+        on line 127 of /files/apps/invisible_town/app/stylesheets/application.scss, in `background'
+        from line 127 of /files/apps/invisible_town/app/stylesheets/application.scss
 
-/* line 9, ../../app/stylesheets/application.scss */
-a {
-  color: #26b5e8;
-  text-decoration: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-/* line 12, ../../app/stylesheets/application.scss */
-a:hover {
-  color: #54c5ed;
-}
-
-/* line 23, ../../app/stylesheets/application.scss */
-h1, h2, p {
-  font-weight: normal;
-  color: #566;
-}
-
-/* line 28, ../../app/stylesheets/application.scss */
-#header {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 4.5em;
-  z-index: 2000;
-}
-/* line 35, ../../app/stylesheets/application.scss */
-#header h1 {
-  color: #566;
-  text-align: center;
-  font-family: 'Cabin Sketch', cursive;
-  font-size: 200%;
-  font-weight: normal;
-  text-shadow: white 0px 1px 0px;
-}
-/* line 42, ../../app/stylesheets/application.scss */
-#header h1 a {
-  color: #333;
-  text-decoration: none;
-}
-/* line 45, ../../app/stylesheets/application.scss */
-#header h1 a:hover {
-  color: #464;
-}
-
-/* line 52, ../../app/stylesheets/application.scss */
-#map {
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 40px inset;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 40px inset;
-  -o-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 40px inset;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 40px inset;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-/* line 59, ../../app/stylesheets/application.scss */
-#map #background {
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  top: 0;
-  left: 0;
-}
-/* line 60, ../../app/stylesheets/application.scss */
-#map #background:hover {
-  cursor: pointer;
-}
-/* line 69, ../../app/stylesheets/application.scss */
-#map #map_markers {
-  position: absolute;
-  height: 100%;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: auto;
-  display: block;
-}
-/* line 78, ../../app/stylesheets/application.scss */
-#map #map_markers a {
-  cursor: pointer;
-}
-/* line 82, ../../app/stylesheets/application.scss */
-#map #map_image {
-  z-index: 5;
-  position: absolute;
-  top: 80px;
-  left: 0px;
-  margin: auto;
-  display: block;
-}
-/* line 89, ../../app/stylesheets/application.scss */
-#map #map_image img {
-  border: 4px solid white;
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
-  -o-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
-}
-
-/* line 96, ../../app/stylesheets/application.scss */
-.door {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #26b5e8;
-  width: 24px;
-  height: 24px;
-  font-size: 16px;
-  padding-top: 4px;
-  padding-left: 2px;
-  padding-right: 2px;
-  text-align: center;
-  font-weight: bold;
-  color: white;
-  display: block;
-  -moz-border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -o-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -khtml-border-radius: 12px;
-  border-radius: 12px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px inset, white 0px 0px 10px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px inset, white 0px 0px 10px;
-  -o-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px inset, white 0px 0px 10px;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px inset, white 0px 0px 10px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* line 115, ../../app/stylesheets/application.scss */
-.story {
-  background-color: #efd500;
-  width: 24px;
-  height: 24px;
-  display: block;
-  -moz-border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -o-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -khtml-border-radius: 12px;
-  border-radius: 12px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px inset, white 0px 0px 10px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px inset, white 0px 0px 10px;
-  -o-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px inset, white 0px 0px 10px;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px inset, white 0px 0px 10px;
-}
-
-/* line 124, ../../app/stylesheets/application.scss */
-body {
-  overflow: hidden;
-  font-family: 'Cabin Sketch', cursive;
-  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, #ffffff), color-stop(100%, #8888bb));
-  background: -webkit-radial-gradient(#ffffff, #8888bb);
-  background: -moz-radial-gradient(#ffffff, #8888bb);
-  background: -o-radial-gradient(#ffffff, #8888bb);
-  background: -ms-radial-gradient(#ffffff, #8888bb);
-  background: radial-gradient(#ffffff, #8888bb);
-  color: #566;
-}
-
-/* line 131, ../../app/stylesheets/application.scss */
-.hidden {
-  display: none;
-}
-
-/* line 135, ../../app/stylesheets/application.scss */
-#fader {
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 4000;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* line 143, ../../app/stylesheets/application.scss */
-#story {
-  display: none;
-  position: absolute;
-  left: 25%;
-  top: 0px;
-  z-index: 5000;
-  width: 50%;
-  background-color: #fefdfa;
-  -moz-box-shadow: rgba(30, 10, 0, 0.3) 0px 0px 10px inset, white 0px 0px 10px;
-  -webkit-box-shadow: rgba(30, 10, 0, 0.3) 0px 0px 10px inset, white 0px 0px 10px;
-  -o-box-shadow: rgba(30, 10, 0, 0.3) 0px 0px 10px inset, white 0px 0px 10px;
-  box-shadow: rgba(30, 10, 0, 0.3) 0px 0px 10px inset, white 0px 0px 10px;
-  border: 1px rgba(0, 0, 0, 0.2) solid;
-  padding: 1.5em;
-}
-/* line 154, ../../app/stylesheets/application.scss */
-#story h1 {
-  font-family: 'Cabin Sketch', cursive;
-  font-weight: normal;
-  padding: 0px;
-  margin-top: 0px;
-}
-
-/* line 162, ../../app/stylesheets/application.scss */
-#back {
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 9500;
-  padding: 1em;
-  font-size: 64px;
-  color: #888;
-  cursor: pointer;
-  text-decoration: none;
-}
-/* line 173, ../../app/stylesheets/application.scss */
-#back:hover {
-  color: black;
-}
-
-/* line 178, ../../app/stylesheets/application.scss */
-#greeting {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 180px;
-  z-index: 10;
-  background-color: white;
-  padding: 0.3em;
-}
-
-/* line 188, ../../app/stylesheets/application.scss */
-.done_button {
-  background-color: #ddaa11;
-  color: white;
-  font-weight: bold;
-  padding: 0.5em;
-  cursor: pointer;
-}
-
-/* TipTip CSS - Version 1.2 */
-/* line 198, ../../app/stylesheets/application.scss */
-#tiptip_holder {
-  font-family: 'Cabin Sketch', cursive;
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 99999;
-}
-
-/* line 207, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_top {
-  padding-bottom: 5px;
-}
-
-/* line 211, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_bottom {
-  padding-top: 5px;
-}
-
-/* line 215, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_right {
-  padding-left: 5px;
-}
-
-/* line 219, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_left {
-  padding-right: 5px;
-}
-
-/* line 223, ../../app/stylesheets/application.scss */
-#tiptip_content {
-  font-size: 125%;
-  color: #000;
-  text-shadow: 0 0 2px #fff;
-  padding: 4px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background-color: #e1e1e1;
-  background-color: rgba(225, 225, 225, 0.92);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eeeeee), to(white));
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  box-shadow: 0 0 3px #555;
-  -webkit-box-shadow: 0 0 3px #555;
-  -moz-box-shadow: 0 0 3px #555;
-}
-
-/* line 240, ../../app/stylesheets/application.scss */
-#tiptip_arrow, #tiptip_arrow_inner {
-  position: absolute;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 6px;
-  height: 0;
-  width: 0;
-}
-
-/* line 249, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_top #tiptip_arrow {
-  border-top-color: #222;
-  border-top-color: rgba(255, 255, 255, 0.35);
-}
-
-/* line 254, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_bottom #tiptip_arrow {
-  border-bottom-color: #222;
-  border-bottom-color: rgba(255, 255, 255, 0.35);
-}
-
-/* line 259, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_right #tiptip_arrow {
-  border-right-color: #222;
-  border-right-color: rgba(255, 255, 255, 0.35);
-}
-
-/* line 264, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_left #tiptip_arrow {
-  border-left-color: #222;
-  border-left-color: rgba(255, 255, 255, 0.35);
-}
-
-/* line 269, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_top #tiptip_arrow_inner {
-  margin-top: -7px;
-  margin-left: -6px;
-  border-top-color: #e1e1e1;
-  border-top-color: rgba(225, 225, 225, 0.92);
-}
-
-/* line 276, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_bottom #tiptip_arrow_inner {
-  margin-top: -5px;
-  margin-left: -6px;
-  border-bottom-color: #e1e1e1;
-  border-bottom-color: rgba(225, 225, 225, 0.92);
-}
-
-/* line 283, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_right #tiptip_arrow_inner {
-  margin-top: -6px;
-  margin-left: -5px;
-  border-right-color: #e1e1e1;
-  border-right-color: rgba(225, 225, 225, 0.92);
-}
-
-/* line 290, ../../app/stylesheets/application.scss */
-#tiptip_holder.tip_left #tiptip_arrow_inner {
-  margin-top: -6px;
-  margin-left: -7px;
-  border-left-color: #e1e1e1;
-  border-left-color: rgba(225, 225, 225, 0.92);
-}
-
-/* Webkit Hacks  */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  /* line 299, ../../app/stylesheets/application.scss */
-  #tiptip_content {
-    padding: 4px 8px 5px 8px;
-    background-color: rgba(245, 245, 245, 0.88);
-  }
-
-  /* line 303, ../../app/stylesheets/application.scss */
-  #tiptip_holder.tip_bottom #tiptip_arrow_inner {
-    border-bottom-color: rgba(245, 245, 245, 0.88);
-  }
-
-  /* line 306, ../../app/stylesheets/application.scss */
-  #tiptip_holder.tip_top #tiptip_arrow_inner {
-    border-top-color: rgba(220, 220, 220, 0.92);
-  }
-}
-/* line 311, ../../app/stylesheets/application.scss */
-#sidebar {
-  font-family: 'Cabin Sketch', cursive;
-  position: absolute;
-  bottom: 18px;
-  left: 18px;
-  width: 180px;
-  z-index: 10000;
-}
-/* line 318, ../../app/stylesheets/application.scss */
-#sidebar ul {
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
-}
-/* line 323, ../../app/stylesheets/application.scss */
-#sidebar ul li a {
-  color: #26b5e8;
-  text-decoration: none;
-  background-color: white;
-  padding: 0.3em;
-  display: block;
-  margin-bottom: 0.3em;
-}
-/* line 330, ../../app/stylesheets/application.scss */
-#sidebar ul li a:visited {
-  color: #999;
-}
-/* line 333, ../../app/stylesheets/application.scss */
-#sidebar ul li a:hover {
-  color: #54c5ed;
-}
+Backtrace:
+/files/apps/invisible_town/app/stylesheets/application.scss:127:in `background'
+/files/apps/invisible_town/app/stylesheets/application.scss:127
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/sass_extensions/functions/gradient_support.rb:238:in `block in color_stops'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/sass_extensions/functions/gradient_support.rb:229:in `map'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/sass_extensions/functions/gradient_support.rb:229:in `color_stops'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/sass_extensions/functions/gradient_support.rb:268:in `radial_gradient'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/script/funcall.rb:88:in `_perform'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/script/node.rb:40:in `perform'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:189:in `block in visit_mixin'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:185:in `each'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:185:in `inject'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:185:in `visit_mixin'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:234:in `visit_rule'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:47:in `visit_root'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/tree/root_node.rb:20:in `render'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/engine.rb:300:in `_render'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/engine.rb:248:in `block in render'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/util.rb:297:in `silence_sass_warnings'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/sass-3.1.10/lib/sass/engine.rb:248:in `render'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/compiler.rb:136:in `block (2 levels) in compile'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/compiler.rb:122:in `timed'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/compiler.rb:135:in `block in compile'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/logger.rb:45:in `red'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/compiler.rb:134:in `compile'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/compiler.rb:114:in `compile_if_required'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/compiler.rb:99:in `block (2 levels) in run'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/compiler.rb:97:in `each'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/compiler.rb:97:in `block in run'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/compiler.rb:122:in `timed'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/compiler.rb:96:in `run'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/commands/watch_project.rb:142:in `recompile'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/path.rb:73:in `call'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/path.rb:73:in `run_callback'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/path.rb:55:in `callback_action'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/path.rb:35:in `update'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/state/directory.rb:39:in `block in modified'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/state/directory.rb:37:in `each'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/state/directory.rb:37:in `modified'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/state/directory.rb:18:in `refresh'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/backends/polling.rb:17:in `each'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/backends/polling.rb:17:in `block in run'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/backends/polling.rb:15:in `loop'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/backends/polling.rb:15:in `run'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm/monitor.rb:26:in `run'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/fssm-0.2.7/lib/fssm.rb:20:in `monitor'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/commands/watch_project.rb:86:in `perform'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/commands/base.rb:18:in `execute'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/commands/project_base.rb:19:in `execute'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/bin/compass:25:in `block in <top (required)>'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/bin/compass:39:in `call'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/gems/compass-0.11.5/bin/compass:39:in `<top (required)>'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/bin/compass:19:in `load'
+/Users/stef/.rvm/gems/ruby-1.9.2-head/bin/compass:19:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Not a valid color stop: Sass::Script::Number: 600\A         on line 127 of /files/apps/invisible_town/app/stylesheets/application.scss, in `background'\A         from line 127 of /files/apps/invisible_town/app/stylesheets/application.scss"; }
