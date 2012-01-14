@@ -316,7 +316,7 @@ $(function() {
         $("#tiptip_holder").hide();
         $fader.show();
         
-        $story.css({left: ( $(window).width() - 400 ) / 2 }).slideUp(function(){
+        $story.css({left: ( $(window).width() - 520 ) / 2 }).slideUp(function(){
             $story.empty();
             var $title = $("<h1 />").text(story.title);
             var $done_button = $("<a href='/#maps/" + story.map + "'>Close</a>");

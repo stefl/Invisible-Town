@@ -168,7 +168,7 @@ body {
   margin: auto;
   top: 84px;
   z-index: 5000;
-  width: 480;
+  width: 480px !important;
   background-color: #fefdfa;
   //@include box-shadow(rgba(30,10,0,0.3) 0px 0px 10px inset, rgba(255,255,255,1) 0px 0px 10px);
   border: 2px solid white;

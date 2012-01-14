@@ -204,7 +204,7 @@ body {
   margin: auto;
   top: 84px;
   z-index: 5000;
-  width: 480;
+  width: 480px !important;
   background-color: #fefdfa;
   border: 2px solid white;
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 6px;
