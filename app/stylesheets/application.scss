@@ -174,9 +174,10 @@ body {
   z-index: 9500;
   padding: 1em;
   font-size: 64px;
-  color: #888;
+  color: rgba(0,0,0,0.5);
   cursor: pointer;
   text-decoration: none;
+  @include text-shadow(white 2px 2px 2px 2px);
   &:hover {
     color: black;
   }

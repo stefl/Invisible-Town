@@ -225,16 +225,17 @@ body {
   z-index: 9500;
   padding: 1em;
   font-size: 64px;
-  color: #888;
+  color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   text-decoration: none;
+  text-shadow: white 2px 2px 2px 2px;
 }
-/* line 180, ../../app/stylesheets/application.scss */
+/* line 181, ../../app/stylesheets/application.scss */
 #back:hover {
   color: black;
 }
 
-/* line 185, ../../app/stylesheets/application.scss */
+/* line 186, ../../app/stylesheets/application.scss */
 #greeting {
   position: absolute;
   bottom: 10px;
@@ -245,7 +246,7 @@ body {
   padding: 0.3em;
 }
 
-/* line 195, ../../app/stylesheets/application.scss */
+/* line 196, ../../app/stylesheets/application.scss */
 .done_button {
   background-color: #ddaa11;
   color: white;
@@ -255,7 +256,7 @@ body {
 }
 
 /* TipTip CSS - Version 1.2 */
-/* line 205, ../../app/stylesheets/application.scss */
+/* line 206, ../../app/stylesheets/application.scss */
 #tiptip_holder {
   font-family: 'Cabin Sketch', cursive;
   display: none;
@@ -265,27 +266,27 @@ body {
   z-index: 99999;
 }
 
-/* line 214, ../../app/stylesheets/application.scss */
+/* line 215, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top {
   padding-bottom: 5px;
 }
 
-/* line 218, ../../app/stylesheets/application.scss */
+/* line 219, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom {
   padding-top: 5px;
 }
 
-/* line 222, ../../app/stylesheets/application.scss */
+/* line 223, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right {
   padding-left: 5px;
 }
 
-/* line 226, ../../app/stylesheets/application.scss */
+/* line 227, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left {
   padding-right: 5px;
 }
 
-/* line 230, ../../app/stylesheets/application.scss */
+/* line 231, ../../app/stylesheets/application.scss */
 #tiptip_content {
   font-size: 125%;
   color: #000;
@@ -303,7 +304,7 @@ body {
   -moz-box-shadow: 0 0 3px #555;
 }
 
-/* line 247, ../../app/stylesheets/application.scss */
+/* line 248, ../../app/stylesheets/application.scss */
 #tiptip_arrow, #tiptip_arrow_inner {
   position: absolute;
   border-color: transparent;
@@ -313,31 +314,31 @@ body {
   width: 0;
 }
 
-/* line 256, ../../app/stylesheets/application.scss */
+/* line 257, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top #tiptip_arrow {
   border-top-color: #222;
   border-top-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 261, ../../app/stylesheets/application.scss */
+/* line 262, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom #tiptip_arrow {
   border-bottom-color: #222;
   border-bottom-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 266, ../../app/stylesheets/application.scss */
+/* line 267, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right #tiptip_arrow {
   border-right-color: #222;
   border-right-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 271, ../../app/stylesheets/application.scss */
+/* line 272, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left #tiptip_arrow {
   border-left-color: #222;
   border-left-color: rgba(255, 255, 255, 0.35);
 }
 
-/* line 276, ../../app/stylesheets/application.scss */
+/* line 277, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_top #tiptip_arrow_inner {
   margin-top: -7px;
   margin-left: -6px;
@@ -345,7 +346,7 @@ body {
   border-top-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 283, ../../app/stylesheets/application.scss */
+/* line 284, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_bottom #tiptip_arrow_inner {
   margin-top: -5px;
   margin-left: -6px;
@@ -353,7 +354,7 @@ body {
   border-bottom-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 290, ../../app/stylesheets/application.scss */
+/* line 291, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_right #tiptip_arrow_inner {
   margin-top: -6px;
   margin-left: -5px;
@@ -361,7 +362,7 @@ body {
   border-right-color: rgba(225, 225, 225, 0.92);
 }
 
-/* line 297, ../../app/stylesheets/application.scss */
+/* line 298, ../../app/stylesheets/application.scss */
 #tiptip_holder.tip_left #tiptip_arrow_inner {
   margin-top: -6px;
   margin-left: -7px;
@@ -371,23 +372,23 @@ body {
 
 /* Webkit Hacks  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-  /* line 306, ../../app/stylesheets/application.scss */
+  /* line 307, ../../app/stylesheets/application.scss */
   #tiptip_content {
     padding: 4px 8px 5px 8px;
     background-color: rgba(245, 245, 245, 0.88);
   }
 
-  /* line 310, ../../app/stylesheets/application.scss */
+  /* line 311, ../../app/stylesheets/application.scss */
   #tiptip_holder.tip_bottom #tiptip_arrow_inner {
     border-bottom-color: rgba(245, 245, 245, 0.88);
   }
 
-  /* line 313, ../../app/stylesheets/application.scss */
+  /* line 314, ../../app/stylesheets/application.scss */
   #tiptip_holder.tip_top #tiptip_arrow_inner {
     border-top-color: rgba(220, 220, 220, 0.92);
   }
 }
-/* line 318, ../../app/stylesheets/application.scss */
+/* line 319, ../../app/stylesheets/application.scss */
 #sidebar {
   font-family: 'Cabin Sketch', cursive;
   position: absolute;
@@ -396,13 +397,13 @@ body {
   width: 180px;
   z-index: 10000;
 }
-/* line 325, ../../app/stylesheets/application.scss */
+/* line 326, ../../app/stylesheets/application.scss */
 #sidebar ul {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
 }
-/* line 330, ../../app/stylesheets/application.scss */
+/* line 331, ../../app/stylesheets/application.scss */
 #sidebar ul li a {
   color: #26b5e8;
   text-decoration: none;
@@ -411,11 +412,11 @@ body {
   display: block;
   margin-bottom: 0.3em;
 }
-/* line 337, ../../app/stylesheets/application.scss */
+/* line 338, ../../app/stylesheets/application.scss */
 #sidebar ul li a:visited {
   color: #999;
 }
-/* line 340, ../../app/stylesheets/application.scss */
+/* line 341, ../../app/stylesheets/application.scss */
 #sidebar ul li a:hover {
   color: #54c5ed;
 }
