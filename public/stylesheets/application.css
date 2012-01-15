@@ -569,12 +569,38 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: #efd500;
+  padding: 0px;
+  margin: 0px;
 }
-/* line 474, ../../app/stylesheets/application.scss */
-#inventory .inventory_container #inventory_list li {
-  width: 33%;
+/* line 476, ../../app/stylesheets/application.scss */
+#inventory .inventory_container #inventory_list ul {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
 }
 /* line 480, ../../app/stylesheets/application.scss */
+#inventory .inventory_container #inventory_list ul li {
+  width: 32%;
+  display: inline-block;
+  float: left;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+  margin: 0px;
+}
+/* line 487, ../../app/stylesheets/application.scss */
+#inventory .inventory_container #inventory_list ul li .inner {
+  padding: 1.5em;
+  background-color: white;
+  -moz-box-shadow: #aaaaaa 2px 4px 4px inset;
+  -webkit-box-shadow: #aaaaaa 2px 4px 4px inset;
+  -o-box-shadow: #aaaaaa 2px 4px 4px inset;
+  box-shadow: #aaaaaa 2px 4px 4px inset;
+}
+/* line 492, ../../app/stylesheets/application.scss */
+#inventory .inventory_container #inventory_list ul li:nth-child(3n+1) {
+  clear: both;
+}
+/* line 499, ../../app/stylesheets/application.scss */
 #inventory.hidden {
   display: none;
 }

@@ -471,9 +471,28 @@ body {
       overflow-x: hidden;
       overflow-y: scroll;
       background-color: $yellow;
-      li {
-        width: 33%;
-
+      padding: 0px;
+      margin: 0px;
+      ul {
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+        li {
+          width: 32%;
+          display: inline-block;
+          float: left;
+          padding-left: 0.5em;
+          padding-top: 0.5em;
+          margin: 0px;
+          .inner {
+            padding: 1.5em;
+            background-color: white;
+            @include box-shadow(#aaa 2px 4px 4px inset);
+          }
+          &:nth-child(3n+1) {
+            clear: both;
+          }
+        }
       }
     }
   }

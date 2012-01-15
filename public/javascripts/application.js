@@ -133,7 +133,7 @@ $(function() {
 
     function showInventory() {
         $inventory.removeClass("hidden").show();
-        var $inventory_list = $("#inventory_list");
+        var $inventory_list = $("#inventory_list ul");
         $inventory_list.empty();
         console.log(VisitedStories.models);
         _.each(VisitedStories.models, function(story) {
