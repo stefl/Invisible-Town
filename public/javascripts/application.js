@@ -31,9 +31,10 @@ $(function() {
         },
 
         start: function() {
-            $("#introduction").addClass("hidden");
-            $("#game").removeClass("hidden").hide().fadeIn(1000, function(){
-                showMap(getStartingMap());
+            $("#introduction").fadeOut(1000, function() {
+                $("#game").removeClass("hidden").hide().fadeIn(1000, function(){
+                    showMap(getStartingMap());
+                });
             });
         },
         
