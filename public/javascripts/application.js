@@ -8,6 +8,7 @@ $(function() {
 
         routes: {
             "": "welcome",
+            "welcome": "welcome",
             "start": "start",
             "help": "help",
             "maps/:slug/stories/:id": "story",
@@ -27,7 +28,8 @@ $(function() {
         },
 
         welcome: function() {
-            $("#introduction").removeClass("hidden").css({height: $(window).height() + "px"});
+            $("#game").hide();
+            $("#introduction").removeClass("hidden").show().css({height: $(window).height() + "px"});
         },
 
         start: function() {
@@ -324,6 +326,12 @@ $(function() {
                 })
             }); */
     }
+
+    function clearInventory() {
+        VisitedStories.each(function(story) {
+            story.destroy();
+        });
+    }
     
     function showStory(story) {
         if(!VisitedStories.get(story.id)) {
@@ -344,7 +352,7 @@ $(function() {
             }
             
             if(!_(story.aframe_clip_id).blank()) {
-                $("#aframeTemplate").tmpl({height: (345 * (3/4.0)) + 18, story: story }).appendTo($story);
+                $("#aframeTemplate").tmpl({height: (480 * (3/4.0)) + 24, story: story }).appendTo($story);
             }
             
             if(!_(story.image_url).blank()) {
@@ -479,4 +487,9 @@ $(function() {
     $("#inventory").hide().removeClass("hidden");
     $("#inventory_link").click(function() { showInventory(); e.preventDefault(); e.stopPropagation(); })
     $("#inventory, #inventory a.close").click(function() { $inventory.hide(); e.preventDefault(); e.stopPropagation(); });
+    $("#inventory a.clear").click(function() {
+        clearInventory();
+        updateInventoryCount();
+        document.location.href = "#welcome";
+    });
 })
