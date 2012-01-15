@@ -14,7 +14,9 @@ Admin.controllers :doors do
 
   post :create do
     @door = Door.new(params[:door])
-    
+    puts @door.inspect
+    puts @door.valid?
+    puts @door.errors.inspect
     if @door.save
       flash[:notice] = 'Door was successfully created.'
       redirect url(:doors, :edit, :id => @door.id)
