@@ -4,6 +4,7 @@ $orange: #ffc500;
 $yellow: #efd500;
 $blue: #26b5e8;
 $text_colour: #766;
+$light_yellow: #ffd;
 
 input:hover, a:hover {
   outline: none;
@@ -146,7 +147,7 @@ body {
   overflow: hidden;
   font-family: 'Cabin Sketch', cursive;
   //@include background(radial-gradient(#fff, #88b 600px));
-  background-color: #ffd;
+  background-color: $light_yellow;
   color: $text_colour;
 }
 
@@ -503,16 +504,43 @@ body {
 
 #introduction {
   width: 100%;
-  h1 {
-    color: $blue;
-  }
+  height: 100%;
+  background-image: url(/images/hugh-intro.png);
+  background-position: 100% 200%;
+  background-repeat: no-repeat;
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
   .intro_container {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
     width: 640px;
-    margin: auto;
-    .description {
-      z-index: 2;
-      position: relative;
-      padding-top: 2em;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    .intro_description {
+      margin: 0px;
+      padding: 0px;
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      h1 {
+        color: $blue;
+        margin: 0px;
+        padding: 0px;
+        height: 1.5em !important;
+        display: block;
+      }
+      h2 {
+        margin: 0px;
+        padding: 0px;
+      }
       #start {
         font-size: 64px;
         background-color: $blue;
@@ -531,9 +559,5 @@ body {
         }
       }
     }
-    .here_is_hugh {
-      margin-top: -8em;
-    }
   }
-  
 }

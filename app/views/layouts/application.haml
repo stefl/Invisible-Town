@@ -21,9 +21,10 @@
     /[if IE]
       <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
   %body
-    #introduction
+    #introduction.hidden
       .intro_container
-        .description
+        .intro_description
+          %p &nbsp;
           %h1
             Stories from an Invisible Town
           %h2
@@ -38,7 +39,6 @@
           %p
             %a#start{:href=>"/#start"} Start
         .here_is_hugh
-          %img{:src => "/images/hugh-intro.png"}
     #game.hidden
       #header
         %h1#stories_title
@@ -130,7 +130,6 @@
   %script{:src=>"/javascripts/jquery.tmpl.js", :type=>"text/javascript"}
   %script{:src=>"/javascripts/jquery-ujs.js", :type=>"text/javascript"}
   %script{:src=>"/javascripts/jquery.tipTip.js", :type=>"text/javascript"}
-  %script{:src=>"/javascripts/jquery.animate-enhanced.min.js", :type=>"text/javascript"}
   %script{:src=>"/javascripts/apprise-1.5.min.js", :type=>"text/javascript"} 
   %script{:src=>"https://www.google.com/jsapi?key=ABQIAAAAiED3VbBueanjkoV2Vw0iqRTBRjYC5d6ZUJckMGRHQZmKqEo52BSzjh4_ihI-_WPv2hNRWtexxnRKjw", :type=>"text/javascript"}  
   %script{:src=>"/javascripts/application.js?rev=#{ENV['COMMIT_HASH']}", :type=>"text/javascript"}   

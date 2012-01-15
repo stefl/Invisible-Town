@@ -15,7 +15,7 @@ $(function() {
         },
 
         map: function(slug) {
-            $("#introduction").addClass("hidden");
+            $("#introduction").hide();
             $("#game").removeClass("hidden");
             var map = getMap(slug);
             if(map) {
@@ -27,11 +27,12 @@ $(function() {
         },
 
         welcome: function() {
-            
+            $("#introduction").removeClass("hidden").css({height: $(window).height() + "px"});
         },
 
         start: function() {
             $("#introduction").fadeOut(1000, function() {
+                console.log("finished fade");
                 $("#game").removeClass("hidden").hide().fadeIn(1000, function(){
                     showMap(getStartingMap());
                 });
@@ -39,7 +40,7 @@ $(function() {
         },
         
         story: function(slug, id) {
-            $("#introduction").addClass("hidden");
+            $("#introduction").hide();
             $("#game").removeClass("hidden");
             var map = getMap(slug);
             if(map) {
