@@ -83,8 +83,10 @@
           #background
         #clouds
         #sidebar_inventory
-          %h2
-            %a#inventory_link Collected memories
+          %h3
+            %a#inventory_link 
+              %span#inventory_count 0 
+              %span#memories memories
 
         = yield
   

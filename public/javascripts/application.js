@@ -88,6 +88,7 @@ $(function() {
                 console.log(e.stack);
                 console.log("cannot start history");
             }
+            updateInventoryCount();
         }
     };
     
@@ -133,6 +134,15 @@ $(function() {
         $map.height($(window).height());
         $map.width($(window).width());
         $fader.css("width", $(window).width()).css("height", $(window).height());
+    }
+
+    function updateInventoryCount() {
+        $("#inventory_count").text(VisitedStories.size())
+        if(VisitedStories.size() == 1) {
+            $("#memories").text("memory"); 
+        } else {
+            $("#memories").text("memories"); 
+        }
     }
 
     function showInventory() {
@@ -317,6 +327,7 @@ $(function() {
         if(!VisitedStories.get(story.id)) {
             VisitedStories.create(story);
         }
+        updateInventoryCount();
         $("#tiptip_holder").hide();
         $fader.show();
         
