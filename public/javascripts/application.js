@@ -219,7 +219,7 @@ $(function() {
 
     function displayGreeting() {
         var map = $map.data().map;
-        $greeting.hide();
+        $greeting.removeClass("hidden").hide();
         if(!_(map.greetings).blank()) {
             $greeting.find("#greets").text("");
             $greeting.find("#greets").text(map.greetings[Math.floor ( Math.random() * map.greetings.length )]);
