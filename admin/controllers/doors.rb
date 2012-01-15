@@ -18,9 +18,11 @@ Admin.controllers :doors do
     puts @door.valid?
     puts @door.errors.inspect
     if @door.save
+      puts "Door saved"
       flash[:notice] = 'Door was successfully created.'
       redirect url(:doors, :edit, :id => @door.id)
     else
+      puts "Door not saved"
       render 'doors/new'
     end
   end

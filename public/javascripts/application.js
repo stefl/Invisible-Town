@@ -237,7 +237,7 @@ $(function() {
 
     function addDoorsAndStoriesToMap() {
         var map = $map.data().map;
-        var $img = $map_image.find("img.active");
+        var $img = $map_image.find("img");
         var tabindex = 1;
         $map_markers.empty().hide();
         $.each(map.doors_from, function(i, e) {

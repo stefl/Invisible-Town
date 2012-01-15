@@ -38,6 +38,7 @@ class Admin < Padrino::Application
   set :login_page, "/admin/sessions/new"
 
   enable  :sessions
+  enable  :flash
   disable :store_location
 
   access_control.roles_for :any do |role|
