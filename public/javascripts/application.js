@@ -7,13 +7,16 @@ $(function() {
     window.InvisibleTownRouter = Backbone.Router.extend({
 
         routes: {
-            "": "home",
+            "": "welcome",
+            "start": "start",
             "help": "help",
             "maps/:slug/stories/:id": "story",
             "maps/:slug": "map"
         },
 
         map: function(slug) {
+            $("#introduction").addClass("hidden");
+            $("#game").removeClass("hidden");
             var map = getMap(slug);
             if(map) {
               showMap(map);
@@ -23,19 +26,20 @@ $(function() {
             }
         },
 
-        inventory: function() {
+        welcome: function() {
             
         },
 
-        about: function() {
-
-        },
-
-        home: function() {
-            showMap(getStartingMap());
+        start: function() {
+            $("#introduction").addClass("hidden");
+            $("#game").removeClass("hidden").hide().fadeIn(1000, function(){
+                showMap(getStartingMap());
+            });
         },
         
         story: function(slug, id) {
+            $("#introduction").addClass("hidden");
+            $("#game").removeClass("hidden");
             var map = getMap(slug);
             if(map) {
               showMap(map);

@@ -604,3 +604,54 @@ body {
 #inventory.hidden {
   display: none;
 }
+
+/* line 504, ../../app/stylesheets/application.scss */
+#introduction {
+  width: 100%;
+}
+/* line 506, ../../app/stylesheets/application.scss */
+#introduction h1 {
+  color: #26b5e8;
+}
+/* line 509, ../../app/stylesheets/application.scss */
+#introduction .intro_container {
+  width: 640px;
+  margin: auto;
+}
+/* line 512, ../../app/stylesheets/application.scss */
+#introduction .intro_container .description {
+  z-index: 2;
+  position: relative;
+  padding-top: 2em;
+}
+/* line 516, ../../app/stylesheets/application.scss */
+#introduction .intro_container .description #start {
+  font-size: 64px;
+  background-color: #26b5e8;
+  padding: 0.4em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin-top: 0.5em;
+  color: white;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  -o-border-radius: 1em;
+  -ms-border-radius: 1em;
+  -khtml-border-radius: 1em;
+  border-radius: 1em;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+  -o-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+/* line 528, ../../app/stylesheets/application.scss */
+#introduction .intro_container .description #start:hover {
+  background-color: #54c5ed;
+  color: white;
+}
+/* line 534, ../../app/stylesheets/application.scss */
+#introduction .intro_container .here_is_hugh {
+  margin-top: -8em;
+}

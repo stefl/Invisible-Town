@@ -500,3 +500,40 @@ body {
     display: none;
   }
 }
+
+#introduction {
+  width: 100%;
+  h1 {
+    color: $blue;
+  }
+  .intro_container {
+    width: 640px;
+    margin: auto;
+    .description {
+      z-index: 2;
+      position: relative;
+      padding-top: 2em;
+      #start {
+        font-size: 64px;
+        background-color: $blue;
+        padding: 0.4em;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+        margin-top: 0.5em;
+        color: white;
+        @include border-radius(1em);
+        @include box-shadow(rgba(0,0,0,0.2) 0px 0px 10px);
+        display: inline-block;
+        cursor: pointer;
+        &:hover {
+          background-color: lighten($blue, 10);
+          color: white;
+        }
+      }
+    }
+    .here_is_hugh {
+      margin-top: -8em;
+    }
+  }
+  
+}

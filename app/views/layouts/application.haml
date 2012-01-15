@@ -21,55 +21,70 @@
     /[if IE]
       <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
   %body
-    #header
-      %h1#stories_title
-        Stories from an Invisible Town
-    #greeting
-      #speech
-      #greets
-    #hugh
-      %img{:src=>"/images/hugh-circle.png"}
-    #sidebar
-      #stories_for_this_map
-        %h2
-          Stories here:
-        %ul
-    #page.container
-      %a#back &larr;
-      %a#help_link ?
-      #help.hidden
-        .help_container
-          %h2 How this works
-          %p I'm Hugh Hughes and I'm making a map of my childhood. 
-          %p As I remember things I'm putting the memories here.
-          %p Browse around and view the memories, either clicking the dots in the graphical area, or at the bottom left.
-          %p As you gather more memories, more become available. And at particular times of day you'll find a few hidden extras around the place too.
-          %p Can you collect them all? Is it even possible to map a childhood? Let's find out...
-          %p
-            %a.close Close
-      #inventory.hidden
-        .inventory_container
+    #introduction
+      .intro_container
+        .description
+          %h1
+            Stories from an Invisible Town
           %h2
-            Your collected memories
+            Hi, I'm Hugh Hughes and I'm mapping my childhood
           %p
-            As you explore, the memories you view are stored here. Collect them all to get access to hidden extras!
-          #inventory_list
-            %ul
-          %p
-            %a.close Close
-      #story
-      #fader
-      #map
-        #map_markers
-        #map_image
-          %img.hidden
-        #background
-      #clouds
-      #sidebar_inventory
-        %h2
-          %a#inventory_link Collected memories
+            Come in and have a look around!
 
-      = yield
+          %p
+            %a#start{:href=>"/#start"} Start
+        .here_is_hugh
+          %img{:src => "/images/hugh-intro.png"}
+    #game.hidden
+      #header
+        %h1#stories_title
+      
+      #greeting
+        #speech
+        #greets
+      #hugh
+        %img{:src=>"/images/hugh-circle.png"}
+      #sidebar
+        #stories_for_this_map
+          %h2
+            Stories here:
+          %ul
+      #page.container
+        %a#back &larr;
+        %a#help_link ?
+        #help.hidden
+          .help_container
+            %h2 How this works
+            %p I'm Hugh Hughes and I'm making a map of my childhood. 
+            %p As I remember things I'm putting the memories here.
+            %p Browse around and view the memories, either clicking the dots in the graphical area, or at the bottom left.
+            %p As you gather more memories, more become available. And at particular times of day you'll find a few hidden extras around the place too.
+            %p Can you collect them all? Is it even possible to map a childhood? Let's find out...
+            %p
+              %a.close Close
+        #inventory.hidden
+          .inventory_container
+            %h2
+              Your collected memories
+            %p
+              As you explore, the memories you view are stored here. Collect them all to get access to hidden extras!
+            #inventory_list
+              %ul
+            %p
+              %a.close Close
+        #story
+        #fader
+        #map
+          #map_markers
+          #map_image
+            %img.hidden
+          #background
+        #clouds
+        #sidebar_inventory
+          %h2
+            %a#inventory_link Collected memories
+
+        = yield
   
   <script id="soundcloudTemplate" type="text/x-jquery-tmpl">
   <iframe width="100%" height="166" scrolling="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F${soundcloud_track_id}&auto_play=true" frameborder="0" ></iframe>
